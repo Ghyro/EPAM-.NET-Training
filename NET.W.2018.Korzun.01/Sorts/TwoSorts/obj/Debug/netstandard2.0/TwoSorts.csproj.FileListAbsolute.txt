@@ -1,0 +1,9 @@
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSorts\bin\Debug\netstandard2.0\TwoSorts.deps.json
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSorts\bin\Debug\netstandard2.0\TwoSorts.dll
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSorts\bin\Debug\netstandard2.0\TwoSorts.pdb
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSorts\obj\Debug\netstandard2.0\TwoSorts.csprojAssemblyReference.cache
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSorts\obj\Debug\netstandard2.0\TwoSorts.csproj.CoreCompileInputs.cache
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSorts\obj\Debug\netstandard2.0\TwoSorts.AssemblyInfoInputs.cache
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSorts\obj\Debug\netstandard2.0\TwoSorts.AssemblyInfo.cs
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSorts\obj\Debug\netstandard2.0\TwoSorts.dll
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSorts\obj\Debug\netstandard2.0\TwoSorts.pdb

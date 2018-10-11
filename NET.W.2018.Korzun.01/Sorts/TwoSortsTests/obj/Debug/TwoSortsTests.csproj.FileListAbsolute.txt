@@ -1,0 +1,14 @@
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSortsTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSortsTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSortsTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSortsTests\bin\Debug\TwoSortsTests.dll
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSortsTests\bin\Debug\TwoSortsTests.pdb
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSortsTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSortsTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSortsTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSortsTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSortsTests\obj\Debug\TwoSortsTests.csprojAssemblyReference.cache
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSortsTests\obj\Debug\TwoSortsTests.csproj.CoreCompileInputs.cache
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSortsTests\obj\Debug\TwoSortsTests.csproj.CopyComplete
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSortsTests\obj\Debug\TwoSortsTests.dll
+C:\Users\Кирилл\source\repos\NET.W.2018.Korzun.01\Sorts\Sorts\TwoSortsTests\obj\Debug\TwoSortsTests.pdb
