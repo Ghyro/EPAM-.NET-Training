@@ -13,7 +13,7 @@ namespace Sorts
         /// <summary>
         /// Check array for null
         /// </summary>
-        /// <param name="mass">Array for sort</param>
+        /// <param name="array">Array for sort</param>
         /// <exception cref="ArgumentException">When our <paramref name="array"/>has length: 0.</exception>
         /// <exception cref="NullReferenceException">When our <paramref name="array"/>has null.</exception>
         public static void QuickSort(int[] array)
@@ -35,7 +35,7 @@ namespace Sorts
         /// <summary>
         /// Algorithm implementation: Quick sort
         /// </summary>
-        /// <param name="mass">Array for sort</param>
+        /// <param name="array">Array for sort</param>
         /// <param name="left">The first value(null position)</param>
         /// <param name="right">The last value(last position-1)</param>
         private static void ImpementationQuickSort(int[] array, int left, int right)
@@ -79,9 +79,9 @@ namespace Sorts
         }
 
         /// <summary>
-        /// Check array for null, 0
+        /// Check array for null, 0, 1
         /// </summary>
-        /// <param name="mass">Array for sort</param>
+        /// <param name="array">Array for sort</param>
         /// <exception cref="ArgumentException">When our <paramref name="array"/>has length: 0.</exception>
         /// <exception cref="NullReferenceException">When our <paramref name="array"/>has null.</exception>
         /// <return>if array == 1</return>
@@ -107,7 +107,7 @@ namespace Sorts
         }
 
         /// <summary>
-        /// Algorithm implementation: Quick Sort
+        /// Algorithm implementation: Merge Sort
         /// </summary>
         /// <param name="array1">The first array</param>
         /// <param name="array2">The second array</param>
