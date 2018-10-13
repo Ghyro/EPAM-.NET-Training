@@ -49,13 +49,12 @@ namespace TwoSortsTests
         }
 
         /// <summary>
-        /// NullReferenceException Quick Sort
+        /// ArgumentNullException Quick Sort
         /// </summary>
         [TestMethod]
-        public void QuickSort_Check_NullReferenceException()
+        public void QuickSort_Check_ArgumentNullException()
         {
-            int[] arrayNull = null;
-            Assert.ThrowsException<NullReferenceException>(() => TwoSorts.QuickSort(null));
+            Assert.ThrowsException<ArgumentNullException>(() => TwoSorts.QuickSort(null));
         }
 
         /// <summary>
@@ -69,13 +68,12 @@ namespace TwoSortsTests
         }
 
         /// <summary>
-        /// NullReferenceException Merge Sort
+        /// ArgumentNullException Merge Sort
         /// </summary>
         [TestMethod]
-        public void MergeSort_Check_NullReferenceException()
+        public void MergeSort_Check_ArgumentNullException()
         {
-            int[] arrayNull = null;
-            Assert.ThrowsException<NullReferenceException>(() => TwoSorts.MergeSort(arrayNull));
+            Assert.ThrowsException<ArgumentNullException>(() => TwoSorts.MergeSort(null));
         }
 
         /// <summary>
