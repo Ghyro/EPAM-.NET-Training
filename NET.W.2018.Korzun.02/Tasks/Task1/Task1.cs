@@ -53,7 +53,7 @@ namespace Tasks
 
             if ((startPosition < minBits) || (endPosition > maxBits) || (startPosition > maxBits) || (endPosition < minBits))
             {
-                throw new ArgumentException("Two positions (start, end) must be bigger than 0 and less than 32!");
+                throw new ArgumentException("Two positions (start, end) must be less than 0 and bigger than 32!");
             }
         }
     }
