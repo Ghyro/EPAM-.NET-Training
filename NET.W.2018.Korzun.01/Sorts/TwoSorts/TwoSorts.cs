@@ -15,12 +15,12 @@ namespace Sorts
         /// </summary>
         /// <param name="array">Array for sort</param>
         /// <exception cref="ArgumentException">When our <paramref name="array"/>has length: 0.</exception>
-        /// <exception cref="NullReferenceException">When our <paramref name="array"/>has null.</exception>
+        /// <exception cref="ArgumentNullException">When our <paramref name="array"/>is null.</exception>
         public static void QuickSort(int[] array)
         {
             if (array == null)
             {
-                throw new NullReferenceException("Array is empty!");
+                throw new ArgumentNullException("Array is null!");
             }
 
             if (array.Length == 0)
@@ -83,19 +83,19 @@ namespace Sorts
         /// </summary>
         /// <param name="array">Array for sort</param>
         /// <exception cref="ArgumentException">When our <paramref name="array"/>has length: 0.</exception>
-        /// <exception cref="NullReferenceException">When our <paramref name="array"/>has null.</exception>
+        /// <exception cref="ArgumentNullException">When our <paramref name="array"/>is null.</exception>
         /// <return>if array == 1</return>
         public static int[] MergeSort(int[] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("Array is null");
+            }
+            
             if (array.Length == 1)
             {
                 return array;
-            }
-            
-            if (array == null)
-            {
-                throw new NullReferenceException("Array us null");
-            }
+            }          
 
             if (array.Length == 0)
             {
