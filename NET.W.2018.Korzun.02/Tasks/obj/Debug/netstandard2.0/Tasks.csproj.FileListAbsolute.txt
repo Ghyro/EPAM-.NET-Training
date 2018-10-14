@@ -9,7 +9,6 @@ D:\EPAM-.NET\NET.W.2018.Korzun.02\Tasks\obj\Debug\netstandard2.0\Tasks.pdb
 D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.02\Tasks\bin\Debug\netstandard2.0\Tasks.deps.json
 D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.02\Tasks\bin\Debug\netstandard2.0\Tasks.dll
 D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.02\Tasks\bin\Debug\netstandard2.0\Tasks.pdb
-D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.02\Tasks\obj\Debug\netstandard2.0\Tasks.csprojAssemblyReference.cache
 D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.02\Tasks\obj\Debug\netstandard2.0\Tasks.csproj.CoreCompileInputs.cache
 D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.02\Tasks\obj\Debug\netstandard2.0\Tasks.AssemblyInfoInputs.cache
 D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.02\Tasks\obj\Debug\netstandard2.0\Tasks.AssemblyInfo.cs
@@ -20,3 +19,9 @@ D:\EPAM-.NET\NET.W.2018.Korzun.02\Tasks\bin\Debug\netstandard2.0\NUnit3.TestAdap
 D:\EPAM-.NET\NET.W.2018.Korzun.02\Tasks\bin\Debug\netstandard2.0\nunit.engine.dll
 D:\EPAM-.NET\NET.W.2018.Korzun.02\Tasks\bin\Debug\netstandard2.0\nunit.engine.api.dll
 D:\EPAM-.NET\NET.W.2018.Korzun.02\Tasks\bin\Debug\netstandard2.0\Mono.Cecil.dll
+D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.02\Tasks\bin\Debug\netstandard2.0\NUnit3.TestAdapter.dll
+D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.02\Tasks\bin\Debug\netstandard2.0\NUnit3.TestAdapter.pdb
+D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.02\Tasks\bin\Debug\netstandard2.0\nunit.engine.dll
+D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.02\Tasks\bin\Debug\netstandard2.0\nunit.engine.api.dll
+D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.02\Tasks\bin\Debug\netstandard2.0\Mono.Cecil.dll
+D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.02\Tasks\obj\Debug\netstandard2.0\Tasks.csprojAssemblyReference.cache

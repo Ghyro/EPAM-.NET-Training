@@ -259,11 +259,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\EPAM-.NET\\NET.W.2018.Korzun.02\\Tasks\\Tasks.csproj",
+      "projectUniqueName": "D:\\EPAM-.NET\\EPAM-.NET-Training\\NET.W.2018.Korzun.02\\Tasks\\Tasks.csproj",
       "projectName": "Tasks",
-      "projectPath": "D:\\EPAM-.NET\\NET.W.2018.Korzun.02\\Tasks\\Tasks.csproj",
+      "projectPath": "D:\\EPAM-.NET\\EPAM-.NET-Training\\NET.W.2018.Korzun.02\\Tasks\\Tasks.csproj",
       "packagesPath": "C:\\Users\\Кирилл\\.nuget\\packages\\",
-      "outputPath": "D:\\EPAM-.NET\\NET.W.2018.Korzun.02\\Tasks\\obj\\",
+      "outputPath": "D:\\EPAM-.NET\\EPAM-.NET-Training\\NET.W.2018.Korzun.02\\Tasks\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

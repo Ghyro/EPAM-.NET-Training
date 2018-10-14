@@ -56,6 +56,8 @@
     <Compile Include="Task1Tests\Task1TestsMSUnit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Task1Tests\Task1TestsNUnit.cs" />
+    <Compile Include="Task2Tests\Task2TestsNUnit.cs" />
+    <Compile Include="Task3Tests\Task3TestsNUnir.cs" />
     <Compile Include="Task4Tests\Task4TestsMSUnit.cs" />
     <Compile Include="Task5Tests\Task5TestsNUnit.cs" />
   </ItemGroup>
