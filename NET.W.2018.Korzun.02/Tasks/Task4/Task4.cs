@@ -53,7 +53,7 @@ namespace Tasks
             if (currentDigit < 0 || currentDigit > 9)
             {
                 throw new ArgumentException("Current digit must be positive value" +
-                    " for filter and doesn't bigger than 10!");
+                    " for filter and doesn't bigger than 9!");
             }
         }
     }
