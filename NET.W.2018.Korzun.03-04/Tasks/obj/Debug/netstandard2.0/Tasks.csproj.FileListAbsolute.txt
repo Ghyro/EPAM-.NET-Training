@@ -34,7 +34,6 @@ D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.03-04\Tasks\bin\Debug\netstand
 D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.03-04\Tasks\bin\Debug\netstandard2.0\Tasks.deps.json
 D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.03-04\Tasks\bin\Debug\netstandard2.0\Tasks.dll
 D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.03-04\Tasks\bin\Debug\netstandard2.0\Tasks.pdb
-D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.03-04\Tasks\obj\Debug\netstandard2.0\Tasks.csprojAssemblyReference.cache
 D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.03-04\Tasks\obj\Debug\netstandard2.0\Tasks.csproj.CoreCompileInputs.cache
 D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.03-04\Tasks\obj\Debug\netstandard2.0\Tasks.AssemblyInfoInputs.cache
 D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.03-04\Tasks\obj\Debug\netstandard2.0\Tasks.AssemblyInfo.cs
