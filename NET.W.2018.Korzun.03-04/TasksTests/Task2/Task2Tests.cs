@@ -1,5 +1,4 @@
-﻿using System;
-using static Tasks.Task2;
+﻿using static Tasks.Task2;
 using NUnit.Framework;
 
 namespace TasksTests.Task2

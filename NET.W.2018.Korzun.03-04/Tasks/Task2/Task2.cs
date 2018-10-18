@@ -1,10 +1,19 @@
 ﻿using System;
 using System.Text;
 
+/// <summary>
+/// Task2
+/// </summary>
 namespace Tasks
 {
+    /// <summary>
+    /// Task2 implementation (static class)
+    /// </summary>
     public static class Task2
     {
+        /// <summary>
+        /// Const values for all scope of program
+        /// </summary>
         const int ExponentLength = 11;
         const int MantissaLength = 52;
         const int Bias = 1023;
@@ -12,8 +21,15 @@ namespace Tasks
         const int positiveBit = 1;
         const int negativeBit = 0;
 
+        /// <summary>
+        /// Implement the extension method to get a string binary representation of a real
+        /// double-precision number in IEEE 754 format. 
+        /// </summary>
+        /// <param name="number">Input double number for convert</param>
+        /// <returns>String binary</returns>
         public static string BitsString(this double number)
         {
+            //Get sign
             int sign = GetSign(number);
 
             if (sign == 1)
@@ -21,19 +37,30 @@ namespace Tasks
                 number = Math.Abs(number);
             }
 
+            //Get order
             int exponent = GetExponent(number);
 
+            //Get mantissa
             double mantissa = GetMantissa(number, exponent);
 
-            int[] exponentBitArr = ConvertExponentToBitArr(exponent);
+            //Сreating an array of exponent numbers
+            int[] exponentBinArr = ConvertExponentToBinArr(exponent);
 
-            int[] mantissaBitArr = ConvertMantissaToBitArr(mantissa);
+            //Сreating an array of mantissa
+            int[] mantissaBinArr = ConvertMantissaToBinArr(mantissa);
 
-            string result = string.Concat(sign, string.Concat(exponentBitArr), string.Concat(mantissaBitArr));
+            //Merge all number parameters in IEEE 754 format
+            string result = string.Concat(sign, string.Concat(exponentBinArr), string.Concat(mantissaBinArr));
 
+            //String binary
             return result;
         }
 
+        /// <summary>
+        /// Get sign of the number
+        /// </summary>
+        /// <param name="number">Input number</param>
+        /// <returns>Current bit</returns>
         private static int GetSign(double number)
         {
             int bit = negativeBit;
@@ -46,6 +73,11 @@ namespace Tasks
             return bit;
         }
 
+        /// <summary>
+        /// Get exponent of the number
+        /// </summary>
+        /// <param name="number">Input number</param>
+        /// <returns>Exponent</returns>
         private static int GetExponent(double number)
         {
             if (double.IsNaN(number))
@@ -76,6 +108,12 @@ namespace Tasks
             return exponent;
         }
 
+        /// <summary>
+        /// Get mantissa of the number
+        /// </summary>
+        /// <param name="number">Input number</param>
+        /// <param name="exponent">Exponent</param>
+        /// <returns>Mantissa</returns>
         private static double GetMantissa(double number, int exponent)
         {
             if (double.IsNaN(number))
@@ -98,7 +136,12 @@ namespace Tasks
             return mantissa;
         }
 
-        private static int[] ConvertExponentToBitArr(int exponent)
+        /// <summary>
+        /// Creating an exponent array (binary)
+        /// </summary>
+        /// <param name="exponent">Exponent of number</param>
+        /// <returns>Array</returns>
+        private static int[] ConvertExponentToBinArr(int exponent)
         {            
             int[] result = new int[ExponentLength];
 
@@ -119,7 +162,12 @@ namespace Tasks
             return result;
         }
 
-        private static int[] ConvertMantissaToBitArr(double mantissaValue)
+        /// <summary>
+        /// Creating an mantissa array (binary)
+        /// </summary>
+        /// <param name="mantissaValue">Mantissa</param>
+        /// <returns>Array</returns>
+        private static int[] ConvertMantissaToBinArr(double mantissaValue)
         {
             int[] result = new int[MantissaLength];
 
