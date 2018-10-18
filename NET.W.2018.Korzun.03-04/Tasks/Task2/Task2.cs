@@ -103,7 +103,11 @@ namespace Tasks
             }
 
             exponent  = exponent + Bias;
-            exponent = exponent < 0 ? 0 : exponent;
+
+            if (exponent < 0)
+            {
+                exponent = 0;
+            }            
 
             return exponent;
         }
