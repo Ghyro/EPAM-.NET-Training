@@ -1,0 +1,137 @@
+﻿using Tasks;
+using NUnit.Framework;
+
+namespace TasksTests.Task2
+{
+    [TestFixture]
+    public static class Task2Tests
+    {
+        private static int[][] currentArr =
+        {
+            new int[] {5,4,6,7,3,5}, //SUM VALUES = 30, MIN VALUE = 3, MAX VALUE = 7, 
+            new int[] {3,7,2,5,8}, //SUM VALUES = 25, MIN VALUE = 2, MAX VALUE = 8,
+            new int[] {1,2,9,6,3} //SUM VALUES = 21, MIN VALUE = 1, MAX VALUE = 9.
+        };
+
+
+        [Test]
+        public static void JaggedArray_SumComparer_NUnit()
+        {
+            //Arrange
+            int[][] expectedArr =
+            {
+               new int[] {1,2,9,6,3},
+               new int[] {3,7,2,5,8},
+               new int[] {5,4,6,7,3,5}
+            };
+
+            int[][] sortArr = (int[][])currentArr.Clone();
+
+            //Act
+            Jagged.SortArray(sortArr, new SumComparer());
+
+            //Assert
+            CollectionAssert.AreEqual(sortArr, expectedArr);
+        }
+
+        [Test]
+        public static void JaggedArray_SumDescendingComparer_NUnit()
+        {
+            //Arrange
+            int[][] expectedArr =
+            {
+                new int[] {5,4,6,7,3,5},
+                new int[] {3,7,2,5,8},
+                new int[] {1,2,9,6,3},
+            };
+
+            int[][] sortArr = (int[][])currentArr.Clone();
+
+            //Act
+            Jagged.SortArray(sortArr, new SumDescendingComparer());
+
+            //Assert
+            CollectionAssert.AreEqual(sortArr, expectedArr);
+        }
+
+        [Test]
+        public static void JaggedArray_MaxElementComparer_NUnit()
+        {
+            //Arrange
+            int[][] expectedArr =
+            {
+                new int[] {5,4,6,7,3,5},
+                new int[] {3,7,2,5,8},
+                new int[] {1,2,9,6,3}
+            };
+
+            int[][] sortArr = (int[][])currentArr.Clone();
+
+            //Act
+            Jagged.SortArray(sortArr, new MaxElementComparer());
+
+            //Assert
+            CollectionAssert.AreEqual(sortArr, expectedArr);
+        }
+
+        [Test]
+        public static void JaggedArray_MaxElementDescendingComparer_NUnit()
+        {
+            //Arrange
+            int[][] expectedArr =
+            {
+                new int[] {1,2,9,6,3},
+                new int[] {3,7,2,5,8},
+                new int[] {5,4,6,7,3,5}              
+            };
+
+            int[][] sortArr = (int[][])currentArr.Clone();
+
+            //Act
+            Jagged.SortArray(sortArr, new MaxElementDescendingComparer());
+
+            //Assert
+            CollectionAssert.AreEqual(sortArr, expectedArr);
+        }
+
+        [Test]
+        public static void JaggedArray_MinElementComparer_NUnit()
+        {
+            //Arrange
+            int[][] expectedArr =
+            {
+                new int[] {1,2,9,6,3},
+                new int[] {3,7,2,5,8},
+                new int[] {5,4,6,7,3,5}
+            };
+
+            int[][] sortArr = (int[][])currentArr.Clone();
+
+            //Act
+            Jagged.SortArray(sortArr, new MinElementComparer());
+
+            //Assert
+            CollectionAssert.AreEqual(sortArr, expectedArr);
+        }
+
+        [Test]
+        public static void JaggedArray_MinElementDescendingCompare_NUnit()
+        {
+            //Arrange
+            int[][] expectedArr =
+            {
+                new int[] {5,4,6,7,3,5},
+                new int[] {3,7,2,5,8},
+                new int[] {1,2,9,6,3}               
+            };
+
+            int[][] sortArr = (int[][])currentArr.Clone();
+
+            //Act
+            Jagged.SortArray(sortArr, new MinElementDescendingComparer());
+
+            //Assert
+            CollectionAssert.AreEqual(sortArr, expectedArr);
+        }
+    }
+}
