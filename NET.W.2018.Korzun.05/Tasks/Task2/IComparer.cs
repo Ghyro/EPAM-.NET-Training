@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tasks.Task2
+namespace Tasks
 {
     public interface IComparer
     {
