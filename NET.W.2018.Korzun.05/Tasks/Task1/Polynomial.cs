@@ -67,6 +67,8 @@ namespace Tasks
             }
         }
 
+        #region operations
+
         /// <summary>
         /// Negation of result of <see cref="operator ==(Polynomial, Polynomial)"/>.
         /// </summary>
@@ -142,7 +144,9 @@ namespace Tasks
 
             double[] resultMultipliers = new double[maxLength];
             for (int i = 0; i < minLength; i++)
+            {
                 resultMultipliers[i] = pln1[i] + pln2[i];
+            }               
 
             if (pln1.Exponent > pln2.Exponent)
             {
@@ -271,6 +275,8 @@ namespace Tasks
         {
             return pln / multiplier;
         }
+
+        #endregion
 
         public override string ToString()
         {
