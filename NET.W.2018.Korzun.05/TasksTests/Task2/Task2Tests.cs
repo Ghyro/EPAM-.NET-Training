@@ -6,12 +6,23 @@ namespace TasksTests.Task2
     [TestFixture]
     public static class Task2Tests
     {
+        #region CurrentValues
         private static int[][] currentArr =
         {
-            new int[] {5,4,6,7,3,5}, //SUM VALUES = 30, MIN VALUE = 3, MAX VALUE = 7, 
-            new int[] {3,7,2,5,8}, //SUM VALUES = 25, MIN VALUE = 2, MAX VALUE = 8,
-            new int[] {1,2,9,6,3} //SUM VALUES = 21, MIN VALUE = 1, MAX VALUE = 9.
+            new int[] {5,4,6,7,3,5},
+            new int[] {3,7,2,5,8}, 
+            new int[] {1,2,9,6,3}
         };
+
+        private static int[][][]nullArr =
+        {
+            null,
+            new int[][]{new int[6], null},
+        };
+
+        #endregion
+
+        #region Positive tests
 
 
         [Test]
@@ -133,5 +144,27 @@ namespace TasksTests.Task2
             //Assert
             CollectionAssert.AreEqual(sortArr, expectedArr);
         }
+        
+        #endregion
+        #region Negative tests
+        [Test]
+        [TestCaseSource(nameof(nullArr))]
+        public static void JaggedArray_CheckNull_NUnit(int[][] sortArr)
+        {
+            //Arrange
+            Assert.Throws<ArgumentNullException>(() => Jagged.SortArray(sortArr, new SumComparer()));
+        }
+
+        [Test]
+        public static void JaggedArray_LengthHasZero_NUnit()
+        {
+            //Assert
+            int[][] sortArr = { };
+
+            //Arrange
+            Assert.Throws<ArgumentException>(() => Jagged.SortArray(sortArr, new SumComparer()));
+        }
+
+        #endregion
     }
 }
