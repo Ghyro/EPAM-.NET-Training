@@ -7,12 +7,15 @@ namespace Tasks
     /// </summary>
     public class Task1
     {
+        #region Const. values
         /// <summary>
         /// For Int32. Represents a 32-bit signed integer.
         /// </summary>
         private const int maxBits = 31;
         private const int minBits = 0;
+        #endregion
 
+        #region Algorithm
         /// <summary>
         /// Insert bits of one number into another
         /// </summary>
@@ -20,7 +23,7 @@ namespace Tasks
         /// <param name="value2">The second value</param>
         /// <param name="start">Start position</param>
         /// <param name="end">End position</param>
-        /// <returns>Return the result of the algorithm (some value)</returns>
+        /// <returns>Integer with inserted bits of second number into first number</returns>
         public static int InsertNumber(int value1, int value2, int startPosition, int endPosition)
         {
             //Call method for checking input values
@@ -34,7 +37,9 @@ namespace Tasks
             //Return value
             return (value1 & maskInversion) | ((value2 << startPosition) & bitMask);
         }
+        #endregion
 
+        #region Validation
         /// <summary>
         /// //Check input values
         /// </summary>
@@ -56,5 +61,6 @@ namespace Tasks
                 throw new ArgumentException("Two positions (start, end) must be less than 0 and bigger than 32!");
             }
         }
+        #endregion
     }
 }

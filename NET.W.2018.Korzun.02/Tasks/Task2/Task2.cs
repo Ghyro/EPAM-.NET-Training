@@ -7,45 +7,8 @@ namespace Tasks
     /// Task 2 (implementation)
     /// </summary>
     public class Task2
-    {
-        /// <summary>
-        /// Check input values
-        /// </summary>
-        /// <param name="number">Input value</param>
-        /// <exception cref="ArgumentException">if number <= 0</exception>
-        public static void Validation (int number)
-        {
-            if (number <= 0)
-            {
-                throw new ArgumentException("Number must be positive anyway!");
-            }
-        }
-
-        /// <summary>
-        /// Check if it hasn't bigger number
-        /// </summary>
-        /// <param name="array">input Array</param>
-        /// <returns>false</returns>
-        public static bool hasntNumber(int[] array)
-        {
-            int a = 0;
-
-            for (int i = 0; i < array.Length - 1; i++)
-            {
-                if (array[i] >= array[i + 1])
-                {
-                    a++;
-                }
-            }
-
-            if (a == array.Length - 1)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
+    {    
+        #region SwapNumber
         /// <summary>
         /// Use simple swap
         /// </summary>
@@ -59,7 +22,9 @@ namespace Tasks
             x = y;
             y = temp;
         }
+        #endregion
 
+        #region FindNextBiggerNumber
         /// <summary>
         /// Takes a positive integer and returns the closest largest
         /// integer consisting of the digits of the source number, and - 1
@@ -70,7 +35,7 @@ namespace Tasks
         {
             Validation(number);
 
-            StringBuilder str = new StringBuilder();
+            var str = new StringBuilder();
 
             int[] arrayOfNumber = new int[number.ToString().Length];
 
@@ -100,5 +65,48 @@ namespace Tasks
 
             return int.Parse(str.ToString());
         }
+        #endregion
+
+        #region Validation
+        /// <summary>
+        /// Check input values
+        /// </summary>
+        /// <param name="number">Input value</param>
+        /// <exception cref="ArgumentException">if number <= 0</exception>
+        public static void Validation(int number)
+        {
+            if (number <= 0)
+            {
+                throw new ArgumentException(nameof(number));
+            }
+        }
+        #endregion
+
+        #region HasNotBiggerNumber
+        /// <summary>
+        /// Check if it hasn't bigger number
+        /// </summary>
+        /// <param name="array">IInput Array</param>
+        /// <returns>false</returns>
+        public static bool hasntNumber(int[] array)
+        {
+            int a = 0;
+
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                if (array[i] >= array[i + 1])
+                {
+                    a++;
+                }
+            }
+
+            if (a == array.Length - 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+        #endregion
     }
 }

@@ -7,6 +7,7 @@ namespace Tasks
     /// </summary>
     public class Task5
     {
+        #region FindNthRoot
         /// <summary>
         /// Calculate the root of the n-th degree (n∈N) from among (a∈R) by the Newton method.
         /// </summary>
@@ -30,7 +31,9 @@ namespace Tasks
 
             return x1;
         }
+        #endregion
 
+        #region Validation
         /// <summary>
         /// Check input values
         /// </summary>
@@ -55,7 +58,6 @@ namespace Tasks
                 throw new ArgumentException("Eps mustn't be less than 0!");
             }
         }
-
-
+        #endregion
     }
 }

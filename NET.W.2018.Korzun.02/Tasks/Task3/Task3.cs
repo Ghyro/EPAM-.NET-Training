@@ -8,6 +8,7 @@ namespace Tasks
     /// </summary>
     public class Task3
     {
+        #region FindNumberStopWatch
         /// <summary>
         /// Add to the FindNextBiggerNumber method the ability to return the time
         /// of finding a given number by considering various language features.
@@ -24,5 +25,6 @@ namespace Tasks
 
             return stopwatch;
         }
+        #endregion
     }
 }

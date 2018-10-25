@@ -8,6 +8,7 @@ namespace Tasks
     /// </summary>
     public class Task4
     {
+        #region FilterDigit
         /// <summary>
         /// Accepts a list of integers and filters the list so that only
         /// the numbers containing the specified digit are left at the output.
@@ -35,26 +36,29 @@ namespace Tasks
 
             return list;
         }
+        #endregion
 
+        #region Validation
         /// <summary>
         /// Check input values
         /// </summary>
         /// <param name="array">List of integer values</param>
         /// <param name="currentNumber">Digit for filter</param>
-        /// <exception cref="ArgumentNullException">if input list == null</exception>
+        /// <exception cref="ArgumentNullException">if list is null</exception>
         /// <exception cref="ArgumentException">if input digit < 0 || > 10</exception>
         public static void Validation(List<int> inputList, int currentDigit)
         {
-            if (inputList == null)
+            if (inputList is null)
             {
-                throw new ArgumentNullException("List is null!");
+                throw new ArgumentNullException(nameof(inputList));
             }
 
             if (currentDigit < 0 || currentDigit > 9)
             {
-                throw new ArgumentException("Current digit must be positive value" +
+                throw new ArgumentException($"{nameof(currentDigit)} must be positive value" +
                     " for filter and doesn't bigger than 9!");
             }
         }
+        #endregion
     }
 }
