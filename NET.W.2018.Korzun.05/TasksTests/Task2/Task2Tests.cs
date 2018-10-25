@@ -40,27 +40,7 @@ namespace TasksTests.Task2
             int[][] sortArr = (int[][])currentArr.Clone();
 
             //Act
-            Jagged.SortArray(sortArr, new SumComparer());
-
-            //Assert
-            CollectionAssert.AreEqual(sortArr, expectedArr);
-        }
-
-        [Test]
-        public static void JaggedArray_SumDescendingComparer_NUnit()
-        {
-            //Arrange
-            int[][] expectedArr =
-            {
-                new int[] {5,4,6,7,3,5},
-                new int[] {3,7,2,5,8},
-                new int[] {1,2,9,6,3},
-            };
-
-            int[][] sortArr = (int[][])currentArr.Clone();
-
-            //Act
-            Jagged.SortArray(sortArr, new SumDescendingComparer());
+            Jagged.SortArray(sortArr, new SortBySumElements());
 
             //Assert
             CollectionAssert.AreEqual(sortArr, expectedArr);
@@ -80,27 +60,7 @@ namespace TasksTests.Task2
             int[][] sortArr = (int[][])currentArr.Clone();
 
             //Act
-            Jagged.SortArray(sortArr, new MaxElementComparer());
-
-            //Assert
-            CollectionAssert.AreEqual(sortArr, expectedArr);
-        }
-
-        [Test]
-        public static void JaggedArray_MaxElementDescendingComparer_NUnit()
-        {
-            //Arrange
-            int[][] expectedArr =
-            {
-                new int[] {1,2,9,6,3},
-                new int[] {3,7,2,5,8},
-                new int[] {5,4,6,7,3,5}              
-            };
-
-            int[][] sortArr = (int[][])currentArr.Clone();
-
-            //Act
-            Jagged.SortArray(sortArr, new MaxElementDescendingComparer());
+            Jagged.SortArray(sortArr, new SortByMaxElements());
 
             //Assert
             CollectionAssert.AreEqual(sortArr, expectedArr);
@@ -120,27 +80,7 @@ namespace TasksTests.Task2
             int[][] sortArr = (int[][])currentArr.Clone();
 
             //Act
-            Jagged.SortArray(sortArr, new MinElementComparer());
-
-            //Assert
-            CollectionAssert.AreEqual(sortArr, expectedArr);
-        }
-
-        [Test]
-        public static void JaggedArray_MinElementDescendingCompare_NUnit()
-        {
-            //Arrange
-            int[][] expectedArr =
-            {
-                new int[] {5,4,6,7,3,5},
-                new int[] {3,7,2,5,8},
-                new int[] {1,2,9,6,3}               
-            };
-
-            int[][] sortArr = (int[][])currentArr.Clone();
-
-            //Act
-            Jagged.SortArray(sortArr, new MinElementDescendingComparer());
+            Jagged.SortArray(sortArr, new SortByMinElements());
 
             //Assert
             CollectionAssert.AreEqual(sortArr, expectedArr);
@@ -153,7 +93,7 @@ namespace TasksTests.Task2
         public static void JaggedArray_CheckNull_NUnit(int[][] sortArr)
         {
             //Arrange
-            Assert.Throws<ArgumentNullException>(() => Jagged.SortArray(sortArr, new SumComparer()));
+            Assert.Throws<ArgumentNullException>(() => Jagged.SortArray(sortArr, new SortBySumElements()));
         }
 
         [Test]
@@ -163,7 +103,7 @@ namespace TasksTests.Task2
             int[][] sortArr = { };
 
             //Arrange
-            Assert.Throws<ArgumentException>(() => Jagged.SortArray(sortArr, new SumComparer()));
+            Assert.Throws<ArgumentException>(() => Jagged.SortArray(sortArr, new SortBySumElements()));
         }
 
         #endregion

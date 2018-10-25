@@ -18,6 +18,7 @@ namespace Tasks
         public static void SortArray(int[][] array, IComparer<int[]> comparer)
         {
             Validation(array, comparer);
+
             SortArray(array, comparer.Compare);
         }
 
@@ -41,9 +42,7 @@ namespace Tasks
         private static void Swap(ref int[] a, ref int[] b)
         {
             int[] temp = a;
-
             a = b;
-
             b = temp;
         }
 
