@@ -11,24 +11,84 @@ namespace Sorts
     public class TwoSorts
     {
         /// <summary>
-        /// Check array for null
+        /// Algorithm implementation: Merge Sort
         /// </summary>
-        /// <param name="array">Array for sort</param>
-        /// <exception cref="ArgumentException">When our <paramref name="array"/>has length: 0.</exception>
-        /// <exception cref="ArgumentNullException">When our <paramref name="array"/>is null.</exception>
-        public static void QuickSort(int[] array)
+        /// <param name="array">Input array</param>
+        /// <returns>
+        /// <paramref name="array"/>if length = 1.
+        /// </returns>
+        public static int[] MergeSort(int[] array)
         {
-            if (array == null)
+            Validation(array);
+
+            if (array.Length == 1)
             {
-                throw new ArgumentNullException("Array is null!");
+                return array;
             }
 
-            if (array.Length == 0)
+            int mid_point = array.Length / 2;
+            return ImpementationMergeSort(MergeSort(array.Take(mid_point).ToArray()), MergeSort(array.Skip(mid_point).ToArray()));
+        }
+
+        /// <summary>
+        /// Algorithm implementation: Merge Sort
+        /// </summary>
+        /// <param name="array1">The first array</param>
+        /// <param name="array2">The second array</param>
+        /// <returns>Sorted array</returns>
+        public static int[] ImpementationMergeSort(int[] array1, int[] array2)
+        {
+            int a = 0, b = 0;
+            int[] mergeArray = new int[array1.Length + array2.Length];
+
+            for (int i = 0; i < array1.Length + array2.Length; i++)
             {
-                throw new ArgumentException("Array has length: 0");
+                if (b < array2.Length && a < array1.Length)
+                {
+                    if (array1[a] > array2[b] && b < array2.Length)
+                    {
+                        mergeArray[i] = array2[b++];
+                    }
+
+                    else
+                    {
+                        mergeArray[i] = array1[a++];
+                    }
+
+                }
+                else
+                {
+                    if (b < array2.Length)
+                    {
+                        mergeArray[i] = array2[b++];
+                    }
+
+                    else
+                    {
+                        mergeArray[i] = array1[a++];
+                    }
+                }
+            }
+            return mergeArray;
+        }
+
+        /// <summary>
+        /// Algorithm implementation: Quick sort
+        /// </summary>
+        /// <param name="array">Input array</param>
+        /// <returns>
+        /// <paramref name="array"/>if length = 1.
+        /// </returns>
+        public static int[] QuickSort(int[] array)
+        {
+            Validation(array);
+
+            if (array.Length == 1)
+            {
+                return array;
             }
 
-            ImpementationQuickSort(array, 0, array.Length - 1);
+            return ImpementationQuickSort(array, 0, array.Length - 1);
 
         }
 
@@ -38,7 +98,7 @@ namespace Sorts
         /// <param name="array">Array for sort</param>
         /// <param name="left">The first value(null position)</param>
         /// <param name="right">The last value(last position-1)</param>
-        private static void ImpementationQuickSort(int[] array, int left, int right)
+        private static int[] ImpementationQuickSort(int[] array, int left, int right)
         {
             int x = array[(right - left) / 2 + left];
             int temp;
@@ -76,76 +136,32 @@ namespace Sorts
                     ImpementationQuickSort(array, i, right);
                 }
             }
-        }
 
+            return array;
+        }
+        
         /// <summary>
-        /// Check array for null, 0, 1
+        /// Check input array
         /// </summary>
-        /// <param name="array">Array for sort</param>
-        /// <exception cref="ArgumentException">When our <paramref name="array"/>has length: 0.</exception>
-        /// <exception cref="ArgumentNullException">When our <paramref name="array"/>is null.</exception>
-        /// <return>if array == 1</return>
-        public static int[] MergeSort(int[] array)
+        /// <param name="array">Input array</param>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="array"/>if array is null.
+        /// </exception>
+        /// <exception cref="ArgumentException">
+        /// <paramref name="array"/>if array length = 0.
+        /// </exception>
+        public static void Validation(int[] array)
         {
-            if (array == null)
+            if (array is null)
             {
-                throw new ArgumentNullException("Array is null");
+                throw new ArgumentNullException(nameof(array));
             }
-            
-            if (array.Length == 1)
-            {
-                return array;
-            }          
 
             if (array.Length == 0)
             {
-                throw new ArgumentException("Array has length: 0");
+                throw new ArgumentException(nameof(array));
             }
-
-            int mid_point = array.Length / 2;
-            return ImpementationMergeSort(MergeSort(array.Take(mid_point).ToArray()), MergeSort(array.Skip(mid_point).ToArray()));
-        }
-
-        /// <summary>
-        /// Algorithm implementation: Merge Sort
-        /// </summary>
-        /// <param name="array1">The first array</param>
-        /// <param name="array2">The second array</param>
-        /// <returns>Sorted array</returns>
-        public static int[] ImpementationMergeSort(int[] array1, int[] array2)
-        {
-            int a = 0, b = 0;
-            int[] mergeArray = new int[array1.Length + array2.Length];
-
-            for (int i = 0; i < array1.Length + array2.Length; i++)
-            {
-                if (b < array2.Length && a < array1.Length)
-                {
-                    if (array1[a] > array2[b] && b < array2.Length)
-                    {
-                        mergeArray[i] = array2[b++];
-                    }
-
-                    else
-                    {
-                        mergeArray[i] = array1[a++];
-                    }
-                       
-                }
-                else
-                {
-                    if (b < array2.Length)
-                    {
-                        mergeArray[i] = array2[b++];
-                    }
-                       
-                    else
-                    {
-                        mergeArray[i] = array1[a++];
-                    }                        
-                }                    
-            }
-            return mergeArray;
+            
         }
     }
 }

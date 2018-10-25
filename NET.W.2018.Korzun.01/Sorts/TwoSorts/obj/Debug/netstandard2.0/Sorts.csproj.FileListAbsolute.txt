@@ -15,3 +15,12 @@ D:\EPAM-.NET\EPAM-training-.NET\NET.W.2018.Korzun.01\Sorts\TwoSorts\obj\Debug\ne
 D:\EPAM-.NET\EPAM-training-.NET\NET.W.2018.Korzun.01\Sorts\TwoSorts\obj\Debug\netstandard2.0\Sorts.AssemblyInfo.cs
 D:\EPAM-.NET\EPAM-training-.NET\NET.W.2018.Korzun.01\Sorts\TwoSorts\obj\Debug\netstandard2.0\Sorts.dll
 D:\EPAM-.NET\EPAM-training-.NET\NET.W.2018.Korzun.01\Sorts\TwoSorts\obj\Debug\netstandard2.0\Sorts.pdb
+D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.01\Sorts\TwoSorts\bin\Debug\netstandard2.0\Sorts.deps.json
+D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.01\Sorts\TwoSorts\bin\Debug\netstandard2.0\Sorts.dll
+D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.01\Sorts\TwoSorts\bin\Debug\netstandard2.0\Sorts.pdb
+D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.01\Sorts\TwoSorts\obj\Debug\netstandard2.0\Sorts.csprojAssemblyReference.cache
+D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.01\Sorts\TwoSorts\obj\Debug\netstandard2.0\Sorts.csproj.CoreCompileInputs.cache
+D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.01\Sorts\TwoSorts\obj\Debug\netstandard2.0\Sorts.AssemblyInfoInputs.cache
+D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.01\Sorts\TwoSorts\obj\Debug\netstandard2.0\Sorts.AssemblyInfo.cs
+D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.01\Sorts\TwoSorts\obj\Debug\netstandard2.0\Sorts.dll
+D:\EPAM-.NET\EPAM-.NET-Training\NET.W.2018.Korzun.01\Sorts\TwoSorts\obj\Debug\netstandard2.0\Sorts.pdb

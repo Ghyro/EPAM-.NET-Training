@@ -182,11 +182,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\EPAM-.NET\\EPAM-training-.NET\\NET.W.2018.Korzun.01\\Sorts\\TwoSorts\\Sorts.csproj",
+      "projectUniqueName": "D:\\EPAM-.NET\\EPAM-.NET-Training\\NET.W.2018.Korzun.01\\Sorts\\TwoSorts\\Sorts.csproj",
       "projectName": "Sorts",
-      "projectPath": "D:\\EPAM-.NET\\EPAM-training-.NET\\NET.W.2018.Korzun.01\\Sorts\\TwoSorts\\Sorts.csproj",
+      "projectPath": "D:\\EPAM-.NET\\EPAM-.NET-Training\\NET.W.2018.Korzun.01\\Sorts\\TwoSorts\\Sorts.csproj",
       "packagesPath": "C:\\Users\\Кирилл\\.nuget\\packages\\",
-      "outputPath": "D:\\EPAM-.NET\\EPAM-training-.NET\\NET.W.2018.Korzun.01\\Sorts\\TwoSorts\\obj\\",
+      "outputPath": "D:\\EPAM-.NET\\EPAM-.NET-Training\\NET.W.2018.Korzun.01\\Sorts\\TwoSorts\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
