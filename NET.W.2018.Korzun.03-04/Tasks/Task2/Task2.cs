@@ -11,6 +11,7 @@ namespace Tasks
     /// </summary>
     public static class Task2
     {
+        #region Const. values
         /// <summary>
         /// Const values for all scope of program
         /// </summary>
@@ -20,7 +21,9 @@ namespace Tasks
         const int ReverseBias = -1022;
         const int positiveBit = 1;
         const int negativeBit = 0;
+        #endregion
 
+        #region BitsStringImplementation
         /// <summary>
         /// Implement the extension method to get a string binary representation of a real
         /// double-precision number in IEEE 754 format. 
@@ -55,7 +58,9 @@ namespace Tasks
             //String binary
             return result;
         }
+        #endregion
 
+        #region GetSign
         /// <summary>
         /// Get sign of the number
         /// </summary>
@@ -72,7 +77,9 @@ namespace Tasks
 
             return bit;
         }
+        #endregion
 
+        #region GetExponent
         /// <summary>
         /// Get exponent of the number
         /// </summary>
@@ -111,7 +118,9 @@ namespace Tasks
 
             return exponent;
         }
+        #endregion
 
+        #region GetMantissa
         /// <summary>
         /// Get mantissa of the number
         /// </summary>
@@ -139,7 +148,9 @@ namespace Tasks
 
             return mantissa;
         }
+        #endregion
 
+        #region GetBinArr(Exponent)
         /// <summary>
         /// Creating an exponent array (binary)
         /// </summary>
@@ -165,7 +176,9 @@ namespace Tasks
 
             return result;
         }
+        #endregion
 
+        #region GetBinArr(Mantissa)
         /// <summary>
         /// Creating an mantissa array (binary)
         /// </summary>
@@ -190,8 +203,7 @@ namespace Tasks
             }
 
             return result;
-        }        
-
-        
+        }
+        #endregion
     }
 }

@@ -8,6 +8,7 @@ namespace Tasks
     /// </summary>
     public class Task1_2
     {
+        #region NativeEuclideanAlgorithmImplementation
         /// <summary>
         /// Develop a class that allows you to perform GCD
         /// calculations using the Euclidean algorithm for two, three, etc. integers
@@ -35,7 +36,9 @@ namespace Tasks
 
             return number1;
         }
+        #endregion
 
+        #region NativeEuclideanAlgorithmCall
         /// <summary>
         /// Classical implementation (two param)
         /// </summary>
@@ -43,7 +46,9 @@ namespace Tasks
         /// <param name="number2">The second number</param>
         /// <returns>Value</returns>
         public static int AlgorithmEuclidean(int number1, int number2) => AlgorithmEuclideanNative(number1, number2);
+        #endregion
 
+        #region AlgorithmEuclideanWithParamsCall
         /// <summary>
         /// Implementation algorithm with array
         /// </summary>
@@ -53,7 +58,7 @@ namespace Tasks
         /// <returns>Value</returns>
         public static int AlgorithmEuclidean(int number1, int number2, params int[] numbers)
         {
-            ValidationEuclidean(numbers);
+            Validation(numbers);
 
             int outputResult = AlgorithmEuclideanNative(number1, number2);
 
@@ -64,7 +69,9 @@ namespace Tasks
 
             return outputResult;
         }
-        
+        #endregion
+
+        #region AlgorithmEuclideanTimeNative
         /// <summary>
         /// Get time to classical implementation (two param)
         /// </summary>
@@ -86,7 +93,9 @@ namespace Tasks
 
             return outputResult;
         }
+        #endregion
 
+        #region AlgorithmEuclideanTimeWithParam
         /// <summary>
         /// Get time to implementation with array
         /// </summary>
@@ -109,20 +118,9 @@ namespace Tasks
 
             return outputResult;
         }
+        #endregion        
 
-        /// <summary>
-        /// Check input array
-        /// </summary>
-        /// <param name="numbers">Input array</param>
-        /// <exception cref="ArgumentNullException">if input array = null.</exception>
-        public static void ValidationEuclidean(params int[] numbers)
-        {
-            if (numbers == null)
-            {
-                throw new ArgumentNullException("Array is null!");
-            }
-        }
-
+        #region AlgorithmSteinNativeImplementation
         /// <summary>
         /// Add to the developed class methods that implement the Stein algorithm
         /// (binary Euclidean algorithm) for calculating the GCD of two, three, etc. integers
@@ -176,7 +174,9 @@ namespace Tasks
 
             return AlgorithmSteinNative((number2 - number1) >> 1, number1);
         }
+        #endregion
 
+        #region AlgorithmSteinNativeCall
         /// <summary>
         /// Stein implementation (two param)
         /// </summary>
@@ -184,7 +184,9 @@ namespace Tasks
         /// <param name="number2">The second number</param>
         /// <returns>Value</returns>
         public static int AlgorithmStein(int number1, int number2) => AlgorithmSteinNative(number1, number2);
+        #endregion
 
+        #region AlgorithmSteinWithParamsCall
         /// <summary>
         /// Stein implementation with array
         /// </summary>
@@ -194,7 +196,7 @@ namespace Tasks
         /// <returns>Value</returns>
         public static int AlgorithmStein(int number1, int number2, params int[] numbers)
         {
-            ValidationStein(numbers);
+            Validation(numbers);
 
             int outputResult = AlgorithmSteinNative(number1, number2);
 
@@ -205,7 +207,9 @@ namespace Tasks
 
             return outputResult;
         }
+        #endregion
 
+        #region AlgorithmSteinTimeNative
         /// <summary>
         /// Get time to implementation (two number)
         /// </summary>
@@ -228,7 +232,9 @@ namespace Tasks
 
             return outputResult;
         }
+        #endregion
 
+        #region AlgorithmSteinTimeWithParams
         /// <summary>
         /// Get time to implementation with array
         /// </summary>
@@ -251,19 +257,21 @@ namespace Tasks
 
             return outputResult;
         }
+        #endregion
 
+        #region Validation
         /// <summary>
         /// Check input array
         /// </summary>
         /// <param name="numbers">Input array</param>
         /// <exception cref="ArgumentNullException">if input array = null.</exception>
-        public static void ValidationStein(params int[] numbers)
+        public static void Validation(params int[] numbers)
         {
-            if (numbers == null)
+            if (numbers is null)
             {
-                throw new ArgumentNullException("Array is null!");
+                throw new ArgumentNullException(nameof(numbers));
             }
         }
-
+        #endregion
     }
 }
