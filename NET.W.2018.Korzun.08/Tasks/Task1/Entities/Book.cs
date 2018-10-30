@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace Tasks.Task1
@@ -224,6 +225,45 @@ namespace Tasks.Task1
         }
 
         /// <summary>
+        /// For objects <see cref="Book">, whish has properies ISBN,
+        /// Title, Author, Publishing, YearOfPublishing,
+        /// CountOfPages and Price, impelement the possibility
+        /// of a string representation
+        /// of a different type./>
+        /// </summary>
+        /// <param name="format">Current format</param>
+        /// <param name="formatProvider">object of interface <see cref="IFormatProvider"/></param>
+        /// <returns>
+        /// <exception cref="FormatException">
+        /// <paramref name="format"/> does not exist.
+        /// </exception>
+        /// </returns>
+        public string FormatToString(string format, IFormatProvider formatProvider)
+        {
+            if(format is null)
+            {
+                format = "IATPYCP";
+            }
+
+            if (formatProvider is null)
+            {
+                formatProvider = new CultureInfo("en-US");
+            }
+
+            switch (format.ToUpperInvariant())
+            {
+                case "IATPYCP": return $"{this.ISBN}. {this.Author} - {this.Title}, {this.Publishing}, {this.YearOfPublishing}, {this.CountOfPages} pages, {this.Price.ToString("C", formatProvider)}.";
+                case "IATPYC": return $"{this.ISBN}. {this.Author} - {this.Title}, {this.Publishing}, {this.YearOfPublishing}, {this.CountOfPages} pages.";
+                case "IATPY": return $"{this.ISBN}. {this.Author} - {this.Title}, {this.Publishing}, {this.YearOfPublishing}.";
+                case "IATP": return $"{this.ISBN}. {this.Author} - {this.Title}, {this.Publishing}.";
+                case "IAT": return $"{this.ISBN}. {this.Author} - {this.Title}.";
+                case "AT": return $"{this.Author} - {this.Title}.";
+            }
+
+            throw new FormatException(nameof(format));
+        }
+
+        /// <summary>
         /// Return numeric representation this book instance.
         /// </summary>
         /// <returns>Hash code of current book</returns>
@@ -289,6 +329,8 @@ namespace Tasks.Task1
 
             return string.Compare(Title, other.Title);
         }
+
+        
         #endregion
     }
 }

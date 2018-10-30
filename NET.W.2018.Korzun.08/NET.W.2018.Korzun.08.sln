@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookConsoleTest", "Book.Con
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountConsoleTest", "AccountConsoleTest\AccountConsoleTest.csproj", "{275EC586-5CCC-4662-8DB2-40390CF656F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookNUnitTests", "BookNUnitTests\BookNUnitTests.csproj", "{89E37308-D732-4F9A-9D11-F2F7728BF07A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{275EC586-5CCC-4662-8DB2-40390CF656F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{275EC586-5CCC-4662-8DB2-40390CF656F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{275EC586-5CCC-4662-8DB2-40390CF656F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89E37308-D732-4F9A-9D11-F2F7728BF07A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89E37308-D732-4F9A-9D11-F2F7728BF07A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89E37308-D732-4F9A-9D11-F2F7728BF07A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89E37308-D732-4F9A-9D11-F2F7728BF07A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
