@@ -40,12 +40,6 @@ namespace Tasks.Task3
 
     public static class Convert
     {
-        /// <summary>
-        /// Method for converting from 2 to 16 notation into decimal
-        /// </summary>
-        /// <param name="source">Number in some notation as a string</param>
-        /// <param name="notation">Description of notation</param>
-        /// <returns>Decimal number</returns>
         public static int Converting(this string number, Notation notation)
         {
             if (string.IsNullOrEmpty(number))
@@ -53,18 +47,24 @@ namespace Tasks.Task3
                 throw new ArgumentNullException(nameof(number));
             }
 
-            int rank = 1, result = 0;
+            int rank = 1;
+            int result = 0;
+
             for (var i = number.Length - 1; i >= 0; i--)
             {
                 var index = notation.Symbol.IndexOf(number[i]);
+
                 if (index < 0 || index >= notation.Basic)
+                {
                     throw new ArgumentException();
+                }
+                    
 
-                result += rank * index;
-                rank *= notation.Basic;
+                result = rank * index;
+                rank = rank * notation.Basic;
             }
-            return result;
 
+            return result;
         }
     }
 
