@@ -5,18 +5,23 @@ using System.Text;
 
 namespace Tasks.Task1
 {
-    public class CustomFormat : IFormatProvider, ICustomFormatter
+    public class CustomersFormatter : ICustomFormatter, IFormatProvider
     {
-        IFormatProvider parent;
-
-        public CustomFormat()
-            : this(CultureInfo.CurrentCulture)
+        public string Format(string format, object arg, IFormatProvider formatProvider)
         {
-        }
+            if (string.IsNullOrEmpty(format))
+            {
+                format = "CUSTOM";
+            }
 
-        public CustomFormat(IFormatProvider parent)
-        {
-            this.parent = parent;
+            Book book = arg as Book;
+
+            switch (format.ToUpperInvariant())
+            {
+                case "CUSTOM": return $"{book.ISBN}. {book.Author} - {book.Title}, {book.Publishing}, {book.YearOfPublishing}, {book.CountOfPages} pages, {book.Price.ToString("C", formatProvider = new CultureInfo("en-US"))}";
+            }
+
+            throw new FormatException(nameof(format));
         }
 
         public object GetFormat(Type formatType)
@@ -25,31 +30,7 @@ namespace Tasks.Task1
             {
                 return this;
             }
-            return null; ;
-        }
-
-        public string Format(string format, object arg, IFormatProvider formatProvider)
-        {
-            if (!(arg is Book))
-            {
-                throw new Exception(nameof(arg));
-            }
-
-            if (format != "CUSTOMFORMAT")
-            {
-                throw new Exception(nameof(format));
-            }
-
-            var book = arg as Book;
-
-            switch (format.ToUpperInvariant())
-            {
-                case "CUSTOMFORMAT": return $"{book.ISBN}. {book.Author} - {book.Title}, {book.Publishing}, {book.YearOfPublishing}, {book.CountOfPages} pages, {book.Price.ToString("C", formatProvider)}.";
-            }
-
-            throw new FormatException(nameof(format));
-
-        }
-        
+            return null;
+        }        
     }
 }

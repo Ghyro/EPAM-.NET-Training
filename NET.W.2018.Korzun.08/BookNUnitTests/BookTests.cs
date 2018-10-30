@@ -23,14 +23,18 @@ namespace BookNUnitTests
             return book.FormatToString(format, null);
         }
 
-        [TestCase("CUSTOMFORMAT", ExpectedResult = "958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство, Вильямс, 2015, 1056 pages, $60.00.")]
-        public string Book_InputCustomFormat_NUnit(string format)
+        [Test]
+        public void Book_InputCustomFormat_NUnit()
         {
             //Arrange
-            Book bookCustomFormat = new Book("958-5-56197-676-5", "Герберт Шилдт", "C# 4.0. Полное руководство", "Вильямс", 2015, 1056, 60);
+            Book customer = new Book("958-5-56197-676-5", "Герберт Шилдт", "C# 4.0. Полное руководство", "Вильямс", 2015, 1056, 60);
+            string expected = "958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство, Вильямс, 2015, 1056 pages, $60.00";
 
             //Act
-            return string.Format(new CustomFormat(), format, bookCustomFormat);
+            string result = string.Format(new CustomersFormatter(), "{0:CUSTOM}", customer);           
+
+            //Assert
+            Assert.AreEqual(expected, result);
         }
     }
 }

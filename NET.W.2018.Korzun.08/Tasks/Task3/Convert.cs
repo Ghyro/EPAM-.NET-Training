@@ -60,7 +60,7 @@ namespace Tasks.Task3
                 }
                     
 
-                result = rank * index;
+                result = result + (rank * index);
                 rank = rank * notation.Basic;
             }
 

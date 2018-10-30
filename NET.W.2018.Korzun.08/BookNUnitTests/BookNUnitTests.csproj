@@ -54,8 +54,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BookTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
