@@ -27,11 +27,11 @@ namespace BookNUnitTests
         public void Book_InputCustomFormat_NUnit()
         {
             //Arrange
-            Book customer = new Book("958-5-56197-676-5", "Герберт Шилдт", "C# 4.0. Полное руководство", "Вильямс", 2015, 1056, 60);
+            Book bookCustomFormat = new Book("958-5-56197-676-5", "Герберт Шилдт", "C# 4.0. Полное руководство", "Вильямс", 2015, 1056, 60);
             string expected = "958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство, Вильямс, 2015, 1056 pages, $60.00";
 
             //Act
-            string result = string.Format(new CustomersFormatter(), "{0:CUSTOM}", customer);           
+            string result = string.Format(new CustomFormat(), "{0:CUSTOM}", bookCustomFormat);           
 
             //Assert
             Assert.AreEqual(expected, result);

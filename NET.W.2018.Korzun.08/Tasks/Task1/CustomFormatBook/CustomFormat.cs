@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Tasks.Task1
 {
-    public class CustomersFormatter : ICustomFormatter, IFormatProvider
+    public class CustomFormat : ICustomFormatter, IFormatProvider
     {
         public string Format(string format, object arg, IFormatProvider formatProvider)
         {
