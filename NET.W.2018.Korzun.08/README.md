@@ -19,3 +19,28 @@
       -	добавление новых видов счетов;
       -	изменение/добавление источников хранения информации о счетах;
       -	изменение логики расчета бонусных баллов.
+
+Дополнительно
+=============
+Для объектов класса Book, у которого есть свойства Title, Author, Year, PublishingHous, Edition, Pages и Price реализовать возможность строкового представления различного вида. Например, для объекта со значениями Title = "C# in Depth", Author = "Jon Skeet", Year = 2019, PublishingHous = "Manning", Edition = 4, Pages = 900, Price = 40$. могут быть следующие варианты:
+Book record: Jon Skeet, C# in Depth, 2019, "Manning",
+Book record: Jon Skeet, C# in Depth, 2019
+Book record: Jon Skeet, C# in Depth
+Book record: C# in Depth, 2019, "Manning"
+Book record: C# in Depth и т.д.
+Разработать модульные тесты. (NUnit фреймворк).
+
+ - [Смотреть Book.cs](https://github.com/Ghyro/EPAM-.NET-Training/blob/master/NET.W.2018.Korzun.08/Tasks/Task1/Entities/Book.cs)
+ - [Смотреть BookNUnitTest](https://github.com/Ghyro/EPAM-.NET-Training/blob/master/NET.W.2018.Korzun.08/BookNUnitTests/BookTests.cs)
+
+Не изменяя класс Book, добавить для объектов данного класса дополнительную (любую не существующую у класса изначально) возможность форматирования, не предусмотренную классом.
+Разработать модульные тесты. (NUnit фреймворк).
+
+  - [Смотреть CustomFormat.cs](https://github.com/Ghyro/EPAM-.NET-Training/blob/master/NET.W.2018.Korzun.08/Tasks/Task1/CustomFormatBook/CustomFormat.cs)
+  - [Смотреть BookNUnitTest](https://github.com/Ghyro/EPAM-.NET-Training/blob/master/NET.W.2018.Korzun.08/BookNUnitTests/BookTests.cs)
+
+Реализовать метод расширения получения из строкового представления целого положительного четырехбайтового числа, записанного в p-ичной системе счисления (2<=p<=16), его десятичного значения (при реализации готовые классы-конверторы не использовать!).
+Разработать модульные тесты. (NUnit фреймворк).
+
+  - [Смотреть Convert.cs](https://github.com/Ghyro/EPAM-.NET-Training/blob/master/NET.W.2018.Korzun.08/Tasks/Task3/Convert.cs)
+  - [Смотреть ConvertNUnitTests](https://github.com/Ghyro/EPAM-.NET-Training/blob/master/NET.W.2018.Korzun.08/ConverterNUnitTests/ConvertTests.cs)
