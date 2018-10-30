@@ -35,7 +35,7 @@ namespace Tasks.Task1
                 throw new Exception(nameof(arg));
             }
 
-            if (format != "CustomFormat")
+            if (format != "CUSTOMFORMAT")
             {
                 throw new Exception(nameof(format));
             }
@@ -44,7 +44,7 @@ namespace Tasks.Task1
 
             switch (format.ToUpperInvariant())
             {
-                case "CustomFormat": return $"{book.ISBN}. {book.Author} - {book.Title}, {book.Publishing}, {book.YearOfPublishing}, {book.CountOfPages} pages, {book.Price.ToString("C", formatProvider)}.";
+                case "CUSTOMFORMAT": return $"{book.ISBN}. {book.Author} - {book.Title}, {book.Publishing}, {book.YearOfPublishing}, {book.CountOfPages} pages, {book.Price.ToString("C", formatProvider)}.";
             }
 
             throw new FormatException(nameof(format));

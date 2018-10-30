@@ -23,7 +23,7 @@ namespace BookNUnitTests
             return book.FormatToString(format, null);
         }
 
-        [TestCase("CustomFormat", ExpectedResult = "958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство, Вильямс, 2015, 1056 pages, $60.00.")]
+        [TestCase("CUSTOMFORMAT", ExpectedResult = "958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство, Вильямс, 2015, 1056 pages, $60.00.")]
         public string Book_InputCustomFormat_NUnit(string format)
         {
             //Arrange
