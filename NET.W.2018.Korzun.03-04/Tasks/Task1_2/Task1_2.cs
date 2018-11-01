@@ -1,22 +1,200 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Tasks
+namespace Tasks.Task1_2
 {
     /// <summary>
     /// Task 1 and task 2 (implementations)
+    /// 4 overloads of Euclidean methods and 4 overloads of Stein(binary Euclidean) methods.
     /// </summary>
     public class Task1_2
     {
+        #region Euclide call methods
+
+        /// <summary>
+        /// The first Euclidean method
+        /// </summary>
+        /// <param name="number1">The first parametr</param>
+        /// <param name="number2">The second parametr</param>
+        /// <returns>The greatest common divisor number</returns>
+        public static int GcdEuclideanNative(int number1, int number2) => Gcd(AlgorithmEuclideanNative, number1, number2);
+
+        /// <summary>
+        /// The second Euclidean method
+        /// </summary>
+        /// <param name="numbers">Array of parameters</param>
+        /// <returns>The greatest common divisor number</returns>
+        public static int GcdEuclideanNative(params int[] numbers) => Gcd(AlgorithmEuclideanNative, numbers);
+
+        /// <summary>
+        /// The third Euclidean method
+        /// </summary>
+        /// <param name="time">The object of <see cref="TimeSpan"/></param>
+        /// <param name="number1">The first parametr</param>
+        /// <param name="number2">The second parametr</param>
+        /// <returns>The greatest common divisor number</returns>
+        public static int GcdEuclideanNative(out TimeSpan time, int number1, int number2) => Gcd(AlgorithmEuclideanNative, out time, number1, number2);
+
+        /// <summary>
+        /// The fourth Euclidean method
+        /// </summary>
+        /// <param name="time">The object of <see cref="TimeSpan"/></param>
+        /// <param name="numbers">Array of parameters</param>
+        /// <returns>The greatest common divisor number</returns>
+        public static int GcdEuclideanNative(out TimeSpan time, params int[] numbers) => Gcd(AlgorithmEuclideanNative, out time, numbers);
+        #endregion
+
+        #region Stein call methods
+
+        /// <summary>
+        /// The first Stein method
+        /// </summary>
+        /// <param name="number1">The first parametr</param>
+        /// <param name="number2">The second parametr</param>
+        /// <returns>The greatest common divisor number</returns>
+        public static int GcdSteinNative(int number1, int number2) => Gcd(AlgorithmSteinNative, number1, number2);
+
+        /// <summary>
+        /// The second Stein method
+        /// </summary>
+        /// <param name="numbers">Array of parameters</param>
+        /// <returns>The greatest common divisor number</returns>
+        public static int GcdSteinNative(params int[] numbers) => Gcd(AlgorithmSteinNative, numbers);
+
+        /// <summary>
+        /// The third Stein method
+        /// </summary>
+        /// <param name="time">The object of <see cref="TimeSpan"/></param>
+        /// <param name="number1">The first parametr</param>
+        /// <param name="number2">The second parametr</param>
+        /// <returns>The greatest common divisor number</returns>
+        public static int GcdSteinNative(out TimeSpan time, int number1, int number2) => Gcd(AlgorithmSteinNative, out time, number1, number2);
+
+        /// <summary>
+        /// The fourth Euclidean method
+        /// </summary>
+        /// <param name="time">The object of <see cref="TimeSpan"/></param>
+        /// <param name="numbers">Array of parameters</param>
+        /// <returns>The greatest common divisor number</returns>
+        public static int GcdSteinNative(out TimeSpan time, params int[] numbers) => Gcd(AlgorithmSteinNative, out time, numbers);
+        #endregion
+
+        #region private methods
+
+        /// <summary>
+        /// The first method (add delegate and check values) 
+        /// </summary>
+        /// <param name="func">Object of <see cref="Func{T1, T2, TResult}"/></param>
+        /// <param name="number1">The first number</param>
+        /// <param name="number2">The second number</param>
+        /// <returns>The greatest common divisor number</returns>
+        private static int Gcd(Func<int, int, int> func, int number1, int number2)
+        {
+            if (number1 == 0 || number2 == 0)
+            {
+                throw new ArgumentException($"{nameof(number1)} or {nameof(number2)} must be non-zero value.");
+            }
+
+            return func(number1, number2);
+        }
+
+        /// <summary>
+        /// The first method (add delegate and check values) 
+        /// </summary>
+        /// <param name="func">Object of <see cref="Func{T1, T2, TResult}"/></param>
+        /// <param name="numbers">Array of parameters</param>
+        /// <returns>The greatest common divisor number</returns>
+        private static int Gcd(Func<int, int, int> func, params int[] numbers)
+        {
+            if (numbers is null)
+            {
+                throw new ArgumentNullException(nameof(numbers));
+            }
+
+            if (numbers.Length == 1)
+            {
+                throw new ArgumentException(nameof(numbers));
+            }
+
+            int result = numbers[0];
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                result = func(result, numbers[i]);
+            }
+
+            return result;                       
+        }
+
+        /// <summary>
+        /// The first method (add delegate and check values) 
+        /// </summary>
+        /// <param name="func">Object of <see cref="Func{T1, T2, TResult}"/></param>
+        /// <param name="timeSpan">The object of <see cref="TimeSpan"/></param>
+        /// <param name="number1">The first number</param>
+        /// <param name="number2">The second number</param>
+        /// <returns>The greatest common divisor number</returns>
+        private static int Gcd(Func<int, int, int> func, out TimeSpan timeSpan, int number1, int number2)
+        {
+            if (number1 == 0 || number2 == 0)
+            {
+                throw new ArgumentException($"{nameof(number1)} or {nameof(number2)} must be non-zero value.");
+            }
+
+            Stopwatch stopwatch = Stopwatch.StartNew();
+
+            int result = func(number1, number2);
+
+            stopwatch.Stop();
+
+            timeSpan = stopwatch.Elapsed;
+
+            return result;
+        }
+
+        /// <summary>
+        /// The first method (add delegate and check values) 
+        /// </summary>
+        /// <param name="func">Object of <see cref="Func{T1, T2, TResult}"/></param>
+        /// <param name="numbers">Array of parametres</param>
+        /// <returns>The greatest common divisor number</returns>
+        private static int Gcd(Func<int, int, int> func, out TimeSpan time, params int[] numbers)
+        {
+            if (numbers is null)
+            {
+                throw new ArgumentNullException(nameof(numbers));
+            }
+
+            if (numbers.Length == 1)
+            {
+                throw new ArgumentException(nameof(numbers));
+            }
+
+            Stopwatch stopwatch = Stopwatch.StartNew();
+
+            int result = numbers[0];
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                result = func(result, numbers[i]);
+            }
+
+            stopwatch.Stop();
+
+            time = stopwatch.Elapsed;
+
+            return result;
+        }
+        #endregion
+
         #region NativeEuclideanAlgorithmImplementation
         /// <summary>
-        /// Develop a class that allows you to perform GCD
-        /// calculations using the Euclidean algorithm for two, three, etc. integers
+        /// Euclidean algorithm for two, three, etc. integers (Native implementation)
         /// </summary>
         /// <param name="number1">The first number</param>
         /// <param name="number2">The second number</param>
         /// <returns>Value</returns>
-        public static int AlgorithmEuclideanNative(int number1, int number2)
+        private static int AlgorithmEuclideanNative(int number1, int number2)
         {
             number1 = Math.Abs(number1);
             number2 = Math.Abs(number2);
@@ -27,7 +205,6 @@ namespace Tasks
                 {
                     number1 -= number2;
                 }
-
                 else
                 {
                     number2 -= number1;
@@ -38,100 +215,16 @@ namespace Tasks
         }
         #endregion
 
-        #region NativeEuclideanAlgorithmCall
-        /// <summary>
-        /// Classical implementation (two param)
-        /// </summary>
-        /// <param name="number1">The first number</param>
-        /// <param name="number2">The second number</param>
-        /// <returns>Value</returns>
-        public static int AlgorithmEuclidean(int number1, int number2) => AlgorithmEuclideanNative(number1, number2);
-        #endregion
-
-        #region AlgorithmEuclideanWithParamsCall
-        /// <summary>
-        /// Implementation algorithm with array
-        /// </summary>
-        /// <param name="number1">The first number</param>
-        /// <param name="number2">The second number</param>
-        /// <param name="numbers">Input array</param>
-        /// <returns>Value</returns>
-        public static int AlgorithmEuclidean(int number1, int number2, params int[] numbers)
-        {
-            Validation(numbers);
-
-            int outputResult = AlgorithmEuclideanNative(number1, number2);
-
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                outputResult = AlgorithmEuclideanNative(outputResult, numbers[i]);
-            }
-
-            return outputResult;
-        }
-        #endregion
-
-        #region AlgorithmEuclideanTimeNative
-        /// <summary>
-        /// Get time to classical implementation (two param)
-        /// </summary>
-        /// <param name="time">This object represents a time interval.</param>
-        /// <param name="number1">The first number</param>
-        /// <param name="number2">The second number</param>
-        /// <returns>Value</returns>
-        public static int AlgorithmEuclideanTime(out TimeSpan timeSpan, int number1, int number2)
-        {
-            Stopwatch stopwatch = new Stopwatch();
-
-            stopwatch.Start();
-
-            int outputResult = AlgorithmEuclidean(number1, number2);
-
-            stopwatch.Stop();
-
-            timeSpan = stopwatch.Elapsed;
-
-            return outputResult;
-        }
-        #endregion
-
-        #region AlgorithmEuclideanTimeWithParam
-        /// <summary>
-        /// Get time to implementation with array
-        /// </summary>
-        /// <param name="time">This object represents a time interval.</param>
-        /// <param name="number1">The first number</param>
-        /// <param name="number2">The second number</param>
-        /// <param name="numbers">Input array</param>
-        /// <returns>Value</returns>
-        public static int AlgorithmEuclideanTime(out TimeSpan timeSpan, int number1, int number2, params int[] numbers)
-        {
-            Stopwatch stopwatch = new Stopwatch();
-
-            stopwatch.Start();
-
-            int outputResult = AlgorithmEuclidean(number1, number2, numbers);
-
-            stopwatch.Stop();
-
-            timeSpan = stopwatch.Elapsed;
-
-            return outputResult;
-        }
-        #endregion        
-
         #region AlgorithmSteinNativeImplementation
         /// <summary>
-        /// Add to the developed class methods that implement the Stein algorithm
-        /// (binary Euclidean algorithm) for calculating the GCD of two, three, etc. integers
+        /// Stein algorithm for two, three, etc. integers (Native implementation)
         /// </summary>
         /// <param name="number1">The first number</param>
         /// <param name="number2">The second number</param>
         /// <returns>Value</returns>
-        public static int AlgorithmSteinNative(int number1, int number2)
+        private static int AlgorithmSteinNative(int number1, int number2)
         {
             number1 = Math.Abs(number1);
-
             number2 = Math.Abs(number2);
 
             if (number1 == number2)
@@ -155,7 +248,6 @@ namespace Tasks
                 {
                     return AlgorithmSteinNative(number1 >> 1, number2);
                 }
-
                 else
                 {
                     return AlgorithmSteinNative(number1 >> 1, number2 >> 1) << 1;
@@ -173,104 +265,6 @@ namespace Tasks
             }
 
             return AlgorithmSteinNative((number2 - number1) >> 1, number1);
-        }
-        #endregion
-
-        #region AlgorithmSteinNativeCall
-        /// <summary>
-        /// Stein implementation (two param)
-        /// </summary>
-        /// <param name="number1">The first number</param>
-        /// <param name="number2">The second number</param>
-        /// <returns>Value</returns>
-        public static int AlgorithmStein(int number1, int number2) => AlgorithmSteinNative(number1, number2);
-        #endregion
-
-        #region AlgorithmSteinWithParamsCall
-        /// <summary>
-        /// Stein implementation with array
-        /// </summary>
-        /// <param name="number1">The first number</param>
-        /// <param name="number2">The second number</param>
-        /// <param name="numbers">Input array</param>
-        /// <returns>Value</returns>
-        public static int AlgorithmStein(int number1, int number2, params int[] numbers)
-        {
-            Validation(numbers);
-
-            int outputResult = AlgorithmSteinNative(number1, number2);
-
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                outputResult = AlgorithmSteinNative(outputResult, numbers[i]);
-            }
-
-            return outputResult;
-        }
-        #endregion
-
-        #region AlgorithmSteinTimeNative
-        /// <summary>
-        /// Get time to implementation (two number)
-        /// </summary>
-        /// <param name="time">This object represents a time interval.</param>
-        /// <param name="number1">The first number</param>
-        /// <param name="number2">The second number</param>
-        /// <param name="numbers">Input array</param>
-        /// <returns>Value</returns>
-        public static int AlgorithmSteinTime(out TimeSpan timeSpan, int number1, int number2)
-        {
-            Stopwatch stopwatch = new Stopwatch();
-
-            stopwatch.Start();
-
-            int outputResult = AlgorithmStein(number1, number2);
-
-            stopwatch.Stop();
-
-            timeSpan = stopwatch.Elapsed;
-
-            return outputResult;
-        }
-        #endregion
-
-        #region AlgorithmSteinTimeWithParams
-        /// <summary>
-        /// Get time to implementation with array
-        /// </summary>
-        /// <param name="time">This object represents a time interval.</param>
-        /// <param name="number1">The first number</param>
-        /// <param name="number2">The second number</param>
-        /// <param name="numbers">Input array</param>
-        /// <returns>Value</returns>
-        public static int AlgorithmSteinTime(out TimeSpan timeSpan, int number1, int number2, params int[] numbers)
-        {
-            Stopwatch stopwatch = new Stopwatch();
-
-            stopwatch.Start();
-
-            int outputResult = AlgorithmStein(number1, number2);
-
-            stopwatch.Stop();
-
-            timeSpan = stopwatch.Elapsed;
-
-            return outputResult;
-        }
-        #endregion
-
-        #region Validation
-        /// <summary>
-        /// Check input array
-        /// </summary>
-        /// <param name="numbers">Input array</param>
-        /// <exception cref="ArgumentNullException">if input array = null.</exception>
-        public static void Validation(params int[] numbers)
-        {
-            if (numbers is null)
-            {
-                throw new ArgumentNullException(nameof(numbers));
-            }
         }
         #endregion
     }

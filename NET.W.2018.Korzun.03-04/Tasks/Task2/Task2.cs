@@ -15,12 +15,12 @@ namespace Tasks
         /// <summary>
         /// Const values for all scope of program
         /// </summary>
-        const int ExponentLength = 11;
-        const int MantissaLength = 52;
-        const int Bias = 1023;
-        const int ReverseBias = -1022;
-        const int positiveBit = 1;
-        const int negativeBit = 0;
+        private const int ExponentLength = 11;
+        private const int MantissaLength = 52;
+        private const int Bias = 1023;
+        private const int ReverseBias = -1022;
+        private const int PositiveBit = 1;
+        private const int NegativeBit = 0;
         #endregion
 
         #region BitsStringImplementation
@@ -32,7 +32,7 @@ namespace Tasks
         /// <returns>String binary</returns>
         public static string BitsString(this double number)
         {
-            //Get sign
+            // Get sign
             int sign = GetSign(number);
 
             if (sign == 1)
@@ -40,22 +40,22 @@ namespace Tasks
                 number = Math.Abs(number);
             }
 
-            //Get order
+            // Get order
             int exponent = GetExponent(number);
 
-            //Get mantissa
+            // Get mantissa
             double mantissa = GetMantissa(number, exponent);
 
-            //Сreating an array of exponent numbers
+            // Сreating an array of exponent numbers
             int[] exponentBinArr = ConvertExponentToBinArr(exponent);
 
-            //Сreating an array of mantissa
+            // Сreating an array of mantissa
             int[] mantissaBinArr = ConvertMantissaToBinArr(mantissa);
 
-            //Merge all number parameters in IEEE 754 format
+            // Merge all number parameters in IEEE 754 format
             string result = string.Concat(sign, string.Concat(exponentBinArr), string.Concat(mantissaBinArr));
 
-            //String binary
+            // String binary
             return result;
         }
         #endregion
@@ -68,11 +68,11 @@ namespace Tasks
         /// <returns>Current bit</returns>
         private static int GetSign(double number)
         {
-            int bit = negativeBit;
+            int bit = NegativeBit;
 
             if (double.IsNegativeInfinity(1.0 / number) || number < 0.0)
             {
-                bit = positiveBit;
+                bit = PositiveBit;
             }
 
             return bit;
@@ -165,12 +165,13 @@ namespace Tasks
                 int bit = 0;
                 if ((exponent & 1) == 1)
                 {
-                    bit = positiveBit;
+                    bit = PositiveBit;
                 }
                 else
                 {
-                    bit = negativeBit;
+                    bit = NegativeBit;
                 }
+
                 result[result.Length - i - 1] = bit;
             }
 
@@ -193,12 +194,12 @@ namespace Tasks
                 mantissaValue = mantissaValue * 2;
                 if (mantissaValue >= 1)
                 {
-                    result[i] = positiveBit;
+                    result[i] = PositiveBit;
                     mantissaValue = mantissaValue - 1;
                 }
                 else
                 {
-                    result[i] = negativeBit;
+                    result[i] = NegativeBit;
                 }
             }
 
