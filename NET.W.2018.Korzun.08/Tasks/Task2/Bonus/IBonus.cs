@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tasks
+namespace Tasks.Task2.Bonus
 {
     public interface IBonus
     {
-        int GetBonusPoints(Account account, decimal Amount);
+        int GetBonusPoints(Account account, decimal amount);
     }
 }

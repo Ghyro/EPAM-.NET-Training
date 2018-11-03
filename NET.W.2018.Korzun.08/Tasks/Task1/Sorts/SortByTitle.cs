@@ -7,7 +7,7 @@ namespace Tasks.Task1.Sorts
     /// <summary>
     /// Method which to compare two objects of the <see cref="Book"> by <see cref="Book.Title"/>/>
     /// </summary>
-    class SortByTitle : IComparer<Book>
+    public class SortByTitle : IComparer<Book>
     {
         public int Compare(Book x, Book y)
         {

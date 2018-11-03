@@ -6,7 +6,7 @@ namespace Tasks.Task2.Bonus
 {
     public class BonusWithdraw : IBonus
     {
-        public int GetBonusPoints(Account account, decimal Amount)
+        public int GetBonusPoints(Account account, decimal amount)
         {
             return account.BonusPointToWithdraw;
         }

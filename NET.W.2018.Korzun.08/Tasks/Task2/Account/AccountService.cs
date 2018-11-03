@@ -39,7 +39,6 @@ namespace Task
             listAccounts = bankStorage.GetAccount().Load().ToList();
         }
 
-
         /// <summary>
         /// Add new account
         /// </summary>

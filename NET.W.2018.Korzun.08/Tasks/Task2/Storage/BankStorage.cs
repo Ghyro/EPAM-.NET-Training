@@ -7,8 +7,8 @@ namespace Tasks
 {
     public class BankStorage : IBankAccountStorage
     {
-        private string _Path;
-        private IBankAccount _BankAccount;
+        private string _path;
+        private IBankAccount _bankAccount;
 
         public BankStorage(string path, IBankAccount bankAccount)
         {
@@ -20,8 +20,9 @@ namespace Tasks
         {
             get
             {
-                return _Path;
+                return _path;
             }
+
             set
             {
                 if (value is null)
@@ -34,7 +35,7 @@ namespace Tasks
                     throw new ArgumentException(nameof(value));
                 }
 
-                _Path = value;
+                _path = value;
             }
         }
 
@@ -42,8 +43,9 @@ namespace Tasks
         {
             get
             {
-                return _BankAccount;
+                return _bankAccount;
             }
+
             set
             {
                 if (value is null)
@@ -51,7 +53,7 @@ namespace Tasks
                     throw new ArgumentNullException(nameof(value));
                 }
 
-                _BankAccount = value;
+                _bankAccount = value;
             }
         }
 

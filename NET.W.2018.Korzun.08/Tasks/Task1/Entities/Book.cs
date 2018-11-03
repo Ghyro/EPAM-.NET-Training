@@ -15,13 +15,13 @@ namespace Tasks.Task1
         /// <summary>
         /// Entity of book
         /// </summary>
-        private string _ISBN;
-        private string _Author;
-        private string _Title;
-        private string _Publishing;
-        private int _YearOfPublishing;
-        private int _CountOfPages;
-        private decimal _Price;
+        private string _isbn;
+        private string _author;
+        private string _title;
+        private string _publishing;
+        private int _yearOfPublishing;
+        private int _countOfPages;
+        private decimal _price;
         #endregion      
 
         #region Constructor
@@ -37,13 +37,13 @@ namespace Tasks.Task1
         /// <param name="price">The price of the book</param>
         public Book(string isbn, string author, string title, string publishing, int yearOfPublishing, int countOfPages, decimal price)
         {
-            ISBN = isbn;
-            Author = author;
-            Title = title;
-            Publishing = publishing;
-            YearOfPublishing = yearOfPublishing;
-            CountOfPages = countOfPages;
-            Price = price;
+            this.ISBN = isbn;
+            this.Author = author;
+            this.Title = title;
+            this.Publishing = publishing;
+            this.YearOfPublishing = yearOfPublishing;
+            this.CountOfPages = countOfPages;
+            this.Price = price;
         }
         #endregion
 
@@ -55,8 +55,9 @@ namespace Tasks.Task1
         {
             get
             {
-                return _ISBN;
+                return _isbn;
             }
+
             set
             {
                 string isbnPattern = @"[0-9]*[-| ][0-9]*[-| ][0-9]*[-| ][0-9]*[-| ][0-9]*"; // ISBN-13
@@ -71,7 +72,7 @@ namespace Tasks.Task1
                     throw new ArgumentException($"{nameof(value)} must be in the correct form!");
                 }
 
-                _ISBN = value;
+                _isbn = value;
             }
         }
 
@@ -82,8 +83,9 @@ namespace Tasks.Task1
         {
             get
             {
-                return _Author;
+                return _author;
             }
+
             set
             {
                 if (value == string.Empty)
@@ -96,7 +98,7 @@ namespace Tasks.Task1
                     throw new ArgumentNullException($"{nameof(value)} is null!");
                 }
 
-                _Author = value;
+                _author = value;
             }
         }
 
@@ -107,8 +109,9 @@ namespace Tasks.Task1
         {
             get
             {
-                return _Title;
+                return _title;
             }
+
             set
             {
                 if (value == string.Empty)
@@ -121,7 +124,7 @@ namespace Tasks.Task1
                     throw new ArgumentNullException($"{nameof(value)} is null!");
                 }
 
-                _Title = value;
+                _title = value;
             }
         }
 
@@ -132,8 +135,9 @@ namespace Tasks.Task1
         {
             get
             {
-                return _Publishing;
+                return _publishing;
             }
+
             set
             {
                 if (value == string.Empty)
@@ -146,7 +150,7 @@ namespace Tasks.Task1
                     throw new ArgumentNullException($"{nameof(value)} is null!");
                 }
 
-                _Publishing = value;
+                _publishing = value;
             }
         }
 
@@ -157,8 +161,9 @@ namespace Tasks.Task1
         {
             get
             {
-                return _YearOfPublishing;
+                return _yearOfPublishing;
             }
+
             set
             {
                 if (value <= 0)
@@ -166,7 +171,7 @@ namespace Tasks.Task1
                     throw new ArgumentException($"{nameof(value)} must be positive value!");
                 }
 
-                _YearOfPublishing = value;
+                _yearOfPublishing = value;
             }
         }
 
@@ -177,8 +182,9 @@ namespace Tasks.Task1
         {
             get
             {
-                return _CountOfPages;
+                return _countOfPages;
             }
+
             set
             {
                 if (value <= 0)
@@ -186,7 +192,7 @@ namespace Tasks.Task1
                     throw new ArgumentException($"{nameof(value)} must be positive value!");
                 }
 
-                _CountOfPages = value;
+                _countOfPages = value;
             }
         }
 
@@ -197,8 +203,9 @@ namespace Tasks.Task1
         {
             get
             {
-                return _Price;
+                return _price;
             }
+
             set
             {
                 if (value <= 0)
@@ -206,7 +213,7 @@ namespace Tasks.Task1
                     throw new ArgumentException($"{nameof(value)} must be positive value!");
                 }
 
-                _Price = value;
+                _price = value;
             }
         }
         #endregion
@@ -240,7 +247,7 @@ namespace Tasks.Task1
         /// </returns>
         public string FormatToString(string format, IFormatProvider formatProvider)
         {
-            if(format is null)
+            if (format is null)
             {
                 format = "IATPYCP";
             }
@@ -289,7 +296,7 @@ namespace Tasks.Task1
                 return false;
             }
 
-            return Equals((Book)obj);
+            return this.Equals((Book)obj);
         }
 
         /// <summary>
@@ -308,10 +315,12 @@ namespace Tasks.Task1
             {
                 return false;
             }
+
             if (ReferenceEquals(this, other))
             {
                 return true;
             }
+
             return other.ISBN == ISBN;
         }
 
@@ -328,9 +337,7 @@ namespace Tasks.Task1
             }
 
             return string.Compare(Title, other.Title);
-        }
-
-        
+        }        
         #endregion
     }
 }

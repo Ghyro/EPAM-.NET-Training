@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tasks.Task2.Bonus;
 
 namespace Tasks
 {
@@ -17,7 +18,9 @@ namespace Tasks
         /// <param name="surname">The surname of holder account</param>
         /// <param name="amount">The balance of account</param>
         /// <param name="bonus">Bonus points</param>
-        public BaseAccount(int id, string name, string surname, decimal amount, int bonus) : base(id, name, surname, amount, bonus) { }
+        public BaseAccount(int id, string name, string surname, decimal amount, int bonus) : base(id, name, surname, amount, bonus)
+        {
+        }
 
         /// <summary>
         /// Initialization entities by constructor
@@ -30,7 +33,9 @@ namespace Tasks
         /// <param name="bonusToWithdraw">Bonus by withdraw</param>
         /// <param name="bonusToReplenishment">Bonus by replenishment</param>
         public BaseAccount(int id, string name, string surname, decimal amount, int bonus, IBonus bonusToWithdraw, IBonus bonusToReplenishment)
-            :base(id, name, surname, amount, bonus, bonusToWithdraw, bonusToReplenishment) { }
+            : base(id, name, surname, amount, bonus, bonusToWithdraw, bonusToReplenishment)
+        {
+        }
 
         /// <summary>
         /// Default bonus value for withdraw

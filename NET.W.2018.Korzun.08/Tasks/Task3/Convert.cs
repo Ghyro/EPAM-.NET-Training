@@ -3,41 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Tasks.Task3
-{    
-    public class Notation
-    {
-        private int p;
-        private int minBase = 2;
-        private int maxBase = 16;
-        private const string sym = "0123456789ABCDEF";
-
-        public int Basic
-        {
-            get
-            {
-                return p;
-            }
-        }
-
-        public string Symbol
-        {
-            get
-            {
-                return sym;
-            }
-        }
-
-        public Notation(int p)
-        {
-            if (p < minBase || p > maxBase)
-            {
-                throw new ArgumentException(nameof(p));
-            }
-
-            this.p = p;
-        }
-    }
-
+{
     public static class Convert
     {
         public static int Converting(this string number, Notation notation)
@@ -58,7 +24,6 @@ namespace Tasks.Task3
                 {
                     throw new ArgumentException();
                 }
-                    
 
                 result = result + (rank * index);
                 rank = rank * notation.Basic;
@@ -66,7 +31,5 @@ namespace Tasks.Task3
 
             return result;
         }
-    }
-
-
+    }      
 }

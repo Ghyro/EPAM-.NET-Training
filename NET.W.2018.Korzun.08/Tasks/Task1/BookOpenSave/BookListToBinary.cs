@@ -13,7 +13,7 @@ namespace Tasks.Task1
         /// <summary>
         /// Path of file
         /// </summary>
-        private string _Path;
+        private string _path;
 
         /// <summary>
         /// Initialization a one param
@@ -31,8 +31,9 @@ namespace Tasks.Task1
         {
             get
             {
-                return _Path;
+                return _path;
             }
+
             set
             {
                 if (value is null || value == string.Empty)
@@ -40,7 +41,7 @@ namespace Tasks.Task1
                     throw new ArgumentNullException(nameof(value));
                 }
 
-                _Path = value;
+                _path = value;
             }
         }
 
@@ -52,7 +53,7 @@ namespace Tasks.Task1
         {
             List<Book> listBookLoad = new List<Book>();
 
-            using(Stream stream = File.Open(Path, FileMode.OpenOrCreate))
+            using (Stream stream = File.Open(Path, FileMode.OpenOrCreate))
             {
                 using (BinaryReader binaryReader = new BinaryReader(stream))
                 {
@@ -102,7 +103,6 @@ namespace Tasks.Task1
                     }
                 }
             }
-
         }
     }
 }

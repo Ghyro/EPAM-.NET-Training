@@ -12,23 +12,17 @@ namespace Tasks
     /// different for replenishment and withdrawal and are calculated
     /// depending on some the values of the "value" of the balance and the "cost" of replenishment
     /// </summary>
-    public abstract class Account : IEquatable<Account> //Some bank account
+    public abstract class Account : IEquatable<Account> // Some bank account
     {
-
         #region Entities
-        private int _Id;
-        private string _Name;
-        private string _Surname;
-        private decimal _Amount; //balance
-        private int _Bonus;        
-        public abstract AccountType AccountType { get; }
-
-        private IBonus _BonusToWithdraw = new BonusWithdraw();
-        private IBonus _BonusToReplenishment = new BonusReplenishment();
-        public abstract int BonusPointToWithdraw { get; set; }
-        public abstract int BonusPointToReplenishment { get; set; }
-
-        #endregion
+        private int _id;
+        private string _name;
+        private string _surname;
+        private decimal _amount; // balance
+        private int _bonus;
+        private IBonus _bonusToWithdraw = new BonusWithdraw();
+        private IBonus _bonusToReplenishment = new BonusReplenishment();        
+        #endregion       
 
         #region Constructors
         /// <summary>
@@ -46,7 +40,6 @@ namespace Tasks
             this.Surname = surname;
             this.Amount = amount;
             this.Bonus = bonus;
-
         }
 
         /// <summary>
@@ -60,7 +53,8 @@ namespace Tasks
         /// <param name="bonusToWithdraw">Bonus by withdraw</param>
         /// <param name="bonusToReplenishment">Bonus by replenishment</param>
         public Account(int id, string name, string surname, decimal amount, int bonus, IBonus bonusToWithdraw, IBonus bonusToReplenishment)
-            : this (id, name, surname, amount, bonus)
+            : this(id, name, surname, amount, bonus)
+
         {
             this.BonusToWithdraw = bonusToWithdraw;
             this.BonusToReplenishment = bonusToReplenishment;
@@ -75,16 +69,17 @@ namespace Tasks
         {
             get
             {
-                return this._Id;
+                return this._id;
             }
+
             set
             {
-                if(value < 0)
+                if (value < 0)
                 {
                     throw new ArgumentException($"{nameof(value)} must not be less than 0.");
                 }
 
-                _Id = value;
+                _id = value;
             }
         }
 
@@ -95,8 +90,9 @@ namespace Tasks
         {
             get
             {
-                return _Name;
+                return _name;
             }
+
             set
             {
                 if (value is null || value == string.Empty)
@@ -104,7 +100,7 @@ namespace Tasks
                     throw new ArgumentNullException($"{nameof(value)} is null!");
                 }
 
-                _Name = value;
+                _name = value;
             }
         }
 
@@ -115,8 +111,9 @@ namespace Tasks
         {
             get
             {
-                return _Surname;
+                return _surname;
             }
+
             set
             {
                 if (value is null || value == string.Empty)
@@ -124,7 +121,7 @@ namespace Tasks
                     throw new ArgumentNullException($"{nameof(value)} is null!");
                 }
 
-                _Surname = value;
+                _surname = value;
             }
         }
 
@@ -135,8 +132,9 @@ namespace Tasks
         {
             get
             {
-                return _Amount;
+                return _amount;
             }
+
             set
             {
                 if (value < 0)
@@ -144,7 +142,7 @@ namespace Tasks
                     throw new ArgumentException($"{nameof(value)} must not be less than 0.");
                 }
 
-                _Amount = value;
+                _amount = value;
             }
         }
 
@@ -155,8 +153,9 @@ namespace Tasks
         {
             get
             {
-                return _Bonus;
+                return _bonus;
             }
+
             set
             {
                 if (value < 0)
@@ -164,7 +163,7 @@ namespace Tasks
                     throw new ArgumentException($"{nameof(value)} must not be less than 0.");
                 }
 
-                _Bonus = value;
+                _bonus = value;
             }
         }
 
@@ -175,8 +174,9 @@ namespace Tasks
         {
             get
             {
-                return _BonusToWithdraw;
+                return _bonusToWithdraw;
             }
+
             set
             {
                 if (value is null)
@@ -184,7 +184,7 @@ namespace Tasks
                     throw new ArgumentNullException(nameof(value));
                 }
 
-                _BonusToWithdraw = value;
+                _bonusToWithdraw = value;
             }
         }
 
@@ -195,8 +195,9 @@ namespace Tasks
         {
             get
             {
-                return _BonusToReplenishment;
+                return _bonusToReplenishment;
             }
+
             set
             {
                 if (value is null)
@@ -204,9 +205,15 @@ namespace Tasks
                     throw new ArgumentNullException(nameof(value));
                 }
 
-                _BonusToReplenishment = value;
+                _bonusToReplenishment = value;
             }
         }
+
+        public abstract AccountType AccountType { get; }
+
+        public abstract int BonusPointToWithdraw { get; set; }
+
+        public abstract int BonusPointToReplenishment { get; set; }
         #endregion
 
         #region Methods
@@ -227,12 +234,12 @@ namespace Tasks
                 throw new ArgumentException(nameof(money));
             }
 
-            if (money > Amount)
+            if (money > this.Amount)
             {
                 throw new ArgumentException(nameof(money));
             }
 
-            Amount -= money;
+            this.Amount -= money;
 
             int bonusBalance = Bonus - BonusToReplenishment.GetBonusPoints(this, money);
 
@@ -253,7 +260,7 @@ namespace Tasks
                 throw new ArgumentException(nameof(money));
             }
 
-            Amount += money;
+            this.Amount += money;
 
             Bonus = Bonus + BonusToReplenishment.GetBonusPoints(this, money);
         }
