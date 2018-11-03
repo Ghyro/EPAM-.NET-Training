@@ -8,11 +8,11 @@ namespace BookNUnitTests
     public class BookTests
     {
         [Test]
-        [TestCase("IATPYCP", ExpectedResult = "958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство, Вильямс, 2015, 1056 pages, $60.00.")]
-        [TestCase("IATPYC", ExpectedResult = "958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство, Вильямс, 2015, 1056 pages.")]
-        [TestCase("IATPY", ExpectedResult = "958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство, Вильямс, 2015.")]
-        [TestCase("IATP", ExpectedResult = "958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство, Вильямс.")]
-        [TestCase("IAT", ExpectedResult = "958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство.")]
+        [TestCase("IATPYCP", ExpectedResult = "ISBN 13: 958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство, Вильямс, 2015, 1056 pages, $60.00.")]
+        [TestCase("IATPYC", ExpectedResult = "ISBN 13: 958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство, Вильямс, 2015, 1056 pages.")]
+        [TestCase("IATPY", ExpectedResult = "ISBN 13: 958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство, Вильямс, 2015.")]
+        [TestCase("IATP", ExpectedResult = "ISBN 13: 958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство, Вильямс.")]
+        [TestCase("IAT", ExpectedResult = "ISBN 13: 958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство.")]
         [TestCase("AT", ExpectedResult = "Герберт Шилдт - C# 4.0. Полное руководство.")]
         public string Book_InputFormat_NUnit(string format)
         {
@@ -28,7 +28,7 @@ namespace BookNUnitTests
         {
             //Arrange
             Book bookCustomFormat = new Book("958-5-56197-676-5", "Герберт Шилдт", "C# 4.0. Полное руководство", "Вильямс", 2015, 1056, 60);
-            string expected = "958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство, Вильямс, 2015, 1056 pages, $60.00";
+            string expected = "ISBN 13: 958-5-56197-676-5. Герберт Шилдт - C# 4.0. Полное руководство, Вильямс, 2015, 1056 pages, $60.00";
 
             //Act
             string result = string.Format(new CustomFormat(), "{0:CUSTOM}", bookCustomFormat);           

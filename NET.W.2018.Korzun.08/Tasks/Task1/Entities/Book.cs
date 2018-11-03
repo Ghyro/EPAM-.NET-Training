@@ -259,11 +259,11 @@ namespace Tasks.Task1
 
             switch (format.ToUpperInvariant())
             {
-                case "IATPYCP": return $"{this.ISBN}. {this.Author} - {this.Title}, {this.Publishing}, {this.YearOfPublishing}, {this.CountOfPages} pages, {this.Price.ToString("C", formatProvider)}.";
-                case "IATPYC": return $"{this.ISBN}. {this.Author} - {this.Title}, {this.Publishing}, {this.YearOfPublishing}, {this.CountOfPages} pages.";
-                case "IATPY": return $"{this.ISBN}. {this.Author} - {this.Title}, {this.Publishing}, {this.YearOfPublishing}.";
-                case "IATP": return $"{this.ISBN}. {this.Author} - {this.Title}, {this.Publishing}.";
-                case "IAT": return $"{this.ISBN}. {this.Author} - {this.Title}.";
+                case "IATPYCP": return $"ISBN 13: {this.ISBN}. {this.Author} - {this.Title}, {this.Publishing}, {this.YearOfPublishing}, {this.CountOfPages} pages, {this.Price.ToString("C", formatProvider)}.";
+                case "IATPYC": return $"ISBN 13: {this.ISBN}. {this.Author} - {this.Title}, {this.Publishing}, {this.YearOfPublishing}, {this.CountOfPages} pages.";
+                case "IATPY": return $"ISBN 13: {this.ISBN}. {this.Author} - {this.Title}, {this.Publishing}, {this.YearOfPublishing}.";
+                case "IATP": return $"ISBN 13: {this.ISBN}. {this.Author} - {this.Title}, {this.Publishing}.";
+                case "IAT": return $"ISBN 13: {this.ISBN}. {this.Author} - {this.Title}.";
                 case "AT": return $"{this.Author} - {this.Title}.";
             }
 

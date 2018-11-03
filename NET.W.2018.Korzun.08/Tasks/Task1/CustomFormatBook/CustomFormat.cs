@@ -18,7 +18,7 @@ namespace Tasks.Task1
 
             switch (format.ToUpperInvariant())
             {
-                case "CUSTOM": return $"{book.ISBN}. {book.Author} - {book.Title}, {book.Publishing}, {book.YearOfPublishing}, {book.CountOfPages} pages, {book.Price.ToString("C", formatProvider = new CultureInfo("en-US"))}";
+                case "CUSTOM": return $"ISBN 13: {book.ISBN}. {book.Author} - {book.Title}, {book.Publishing}, {book.YearOfPublishing}, {book.CountOfPages} pages, {book.Price.ToString("C", formatProvider = new CultureInfo("en-US"))}";
             }
 
             throw new FormatException(nameof(format));
