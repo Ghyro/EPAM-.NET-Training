@@ -9,12 +9,16 @@ namespace Tasks
     /// </summary>
     public sealed class Polynomial
     {
-        private const double EPSILON = double.Epsilon;
+        private const double EPSILON = double.Epsilon;    
 
         /// <summary>
-        /// The coeffiients of polynomial
+        /// Create new polynomial     
         /// </summary>
-        public double[] Coefficients { get; private set; }
+        /// <param name="coefficients">Array of polynomial coefficients</param>
+        public Polynomial(double[] coefficients)
+        {
+            Coefficients = coefficients;
+        }
 
         /// <summary>
         /// The exponent (order) of polynomial
@@ -29,20 +33,16 @@ namespace Tasks
                     {
                         return i;
                     }
-                }                    
-                        
+                }
+
                 return 0;
             }
         }
 
         /// <summary>
-        /// Create new polynomial     
+        /// The coeffiients of polynomial
         /// </summary>
-        /// <param name="coefficients">Array of polynomial coefficients</param>
-        public Polynomial(double[] coefficients)
-        {
-            Coefficients = coefficients;
-        }
+        public double[] Coefficients { get; private set; }
 
         /// <summary>
         /// Returns the coefficient at given multiplier

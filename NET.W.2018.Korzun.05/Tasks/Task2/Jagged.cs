@@ -58,7 +58,7 @@ namespace Tasks
         /// <paramref name="array"/>is null,
         /// <paramref name="comparer"/>is null.
         /// </exception>
-        public static void Validation(int[][] array, IComparer<int[]> comparer)
+        private static void Validation(int[][] array, IComparer<int[]> comparer)
         {
             if (array is null)
             {
