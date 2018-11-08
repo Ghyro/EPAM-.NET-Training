@@ -1,4 +1,4 @@
-# Çàäàíèÿ Day 9
+# Ð—Ð°Ð´Ð°Ð½Ð¸Ñ Day 9
 =============
 
-#### Ñìîòðåòü çäåñü -> [Day 9](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.09)
+#### Ð¡Ð¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ Ñ‚ÑƒÑ‚ -> [Day 9](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.09)
