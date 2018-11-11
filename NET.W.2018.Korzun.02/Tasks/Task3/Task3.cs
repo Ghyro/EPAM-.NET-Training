@@ -15,7 +15,7 @@ namespace Tasks
         /// </summary>
         /// <param name="number">Input value</param>
         /// <returns>Time test</returns>
-        public static Stopwatch TimeFindNumber (int number)
+        public static Stopwatch TimeFindNumber(int number)
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
 

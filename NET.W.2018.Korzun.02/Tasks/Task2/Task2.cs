@@ -14,7 +14,7 @@ namespace Tasks
         /// </summary>
         /// <param name="x">The first value</param>
         /// <param name="y">The second value</param>
-        public static void SwapNumber (ref int x, ref int y)
+        public static void SwapNumber(ref int x, ref int y)
         {
             int temp;
 
@@ -31,7 +31,7 @@ namespace Tasks
         /// </summary>
         /// <param name="number"></param>
         /// <returns>Valid number or -1, if hasn't number</returns>
-        public static int FindNextBiggerNumber (int number)
+        public static int FindNextBiggerNumber(int number)
         {
             Validation(number);
 
@@ -44,7 +44,7 @@ namespace Tasks
                 arrayOfNumber[i] = int.Parse(number.ToString()[i].ToString());
             }
 
-            if (hasntNumber(arrayOfNumber))
+            if (HasntNumber(arrayOfNumber))
             {
                 return -1;
             }
@@ -88,7 +88,7 @@ namespace Tasks
         /// </summary>
         /// <param name="array">IInput Array</param>
         /// <returns>false</returns>
-        public static bool hasntNumber(int[] array)
+        public static bool HasntNumber(int[] array)
         {
             int a = 0;
 

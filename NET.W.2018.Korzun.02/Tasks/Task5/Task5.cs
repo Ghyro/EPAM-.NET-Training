@@ -17,7 +17,7 @@ namespace Tasks
         /// <returns>Root of some number</returns>
         public static double FindNthRoot(double value, int root, double eps)
         {
-            //Call method for checking input values
+            // Call method for checking input values
             Validation(value, root, eps);
 
             double x0 = value / root;
@@ -26,7 +26,7 @@ namespace Tasks
             while (Math.Abs(x0 - x1) > eps)
             {
                 x0 = x1;
-                x1 = 1.0 / root * ((root - 1) * x0 + value / Math.Pow(x0, root - 1));
+                x1 = 1.0 / root * ((root - 1) * x0) + (value / Math.Pow(x0, root - 1));
             }
 
             return x1;

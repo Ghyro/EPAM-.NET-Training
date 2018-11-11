@@ -11,6 +11,29 @@ namespace Sorts
     public class TwoSorts
     {
         /// <summary>
+        /// Check input array
+        /// </summary>
+        /// <param name="array">Input array</param>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="array"/>if array is null.
+        /// </exception>
+        /// <exception cref="ArgumentException">
+        /// <paramref name="array"/>if array length = 0.
+        /// </exception>
+        public static void Validation(int[] array)
+        {
+            if (array is null)
+            {
+                throw new ArgumentNullException(nameof(array));
+            }
+
+            if (array.Length == 0)
+            {
+                throw new ArgumentException(nameof(array));
+            }
+        }
+
+        /// <summary>
         /// Algorithm implementation: Merge Sort
         /// </summary>
         /// <param name="array">Input array</param>
@@ -49,12 +72,10 @@ namespace Sorts
                     {
                         mergeArray[i] = array2[b++];
                     }
-
                     else
                     {
                         mergeArray[i] = array1[a++];
                     }
-
                 }
                 else
                 {
@@ -62,13 +83,13 @@ namespace Sorts
                     {
                         mergeArray[i] = array2[b++];
                     }
-
                     else
                     {
                         mergeArray[i] = array1[a++];
                     }
                 }
             }
+
             return mergeArray;
         }
 
@@ -89,7 +110,6 @@ namespace Sorts
             }
 
             return ImpementationQuickSort(array, 0, array.Length - 1);
-
         }
 
         /// <summary>
@@ -100,7 +120,7 @@ namespace Sorts
         /// <param name="right">The last value(last position-1)</param>
         private static int[] ImpementationQuickSort(int[] array, int left, int right)
         {
-            int x = array[(right - left) / 2 + left];
+            int x = array[(right - left) / (2 + left)];
             int temp;
             int i = left;
             int j = right;
@@ -138,30 +158,6 @@ namespace Sorts
             }
 
             return array;
-        }
-        
-        /// <summary>
-        /// Check input array
-        /// </summary>
-        /// <param name="array">Input array</param>
-        /// <exception cref="ArgumentNullException">
-        /// <paramref name="array"/>if array is null.
-        /// </exception>
-        /// <exception cref="ArgumentException">
-        /// <paramref name="array"/>if array length = 0.
-        /// </exception>
-        public static void Validation(int[] array)
-        {
-            if (array is null)
-            {
-                throw new ArgumentNullException(nameof(array));
-            }
-
-            if (array.Length == 0)
-            {
-                throw new ArgumentException(nameof(array));
-            }
-            
-        }
+        }       
     }
 }

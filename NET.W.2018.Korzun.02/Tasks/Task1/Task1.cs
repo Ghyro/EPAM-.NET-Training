@@ -11,8 +11,8 @@ namespace Tasks
         /// <summary>
         /// For Int32. Represents a 32-bit signed integer.
         /// </summary>
-        private const int maxBits = 31;
-        private const int minBits = 0;
+        private const int MAXBITS = 31;
+        private const int MINBITS = 0;
         #endregion
 
         #region Algorithm
@@ -26,15 +26,15 @@ namespace Tasks
         /// <returns>Integer with inserted bits of second number into first number</returns>
         public static int InsertNumber(int value1, int value2, int startPosition, int endPosition)
         {
-            //Call method for checking input values
+            // Call method for checking input values
             Validation(startPosition, endPosition);
 
             int bitMask = ((2 << (endPosition - startPosition)) - 1) << startPosition;
 
-            //Inversion bitMask
+            // Inversion bitMask
             int maskInversion = ~bitMask;
 
-            //Return value
+            // Return value
             return (value1 & maskInversion) | ((value2 << startPosition) & bitMask);
         }
         #endregion
@@ -56,7 +56,7 @@ namespace Tasks
                 throw new ArgumentException("Start position mustn't be bigger than end position!");
             }
 
-            if ((startPosition < minBits) || (endPosition > maxBits) || (startPosition > maxBits) || (endPosition < minBits))
+            if ((startPosition < MINBITS) || (endPosition > MAXBITS) || (startPosition > MAXBITS) || (endPosition < MINBITS))
             {
                 throw new ArgumentException("Two positions (start, end) must be less than 0 and bigger than 32!");
             }
