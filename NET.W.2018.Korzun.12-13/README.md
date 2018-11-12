@@ -19,6 +19,6 @@
 
 ### Задание 4
 Реализовать метод для генерации  последовательности чисел Фибоначчи. 
-- Решение
-- Тесты
+- Решение [Fibonacci.cs](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.12-13/ClassLibrary1/Task4)
+- Тесты [FibonacciTests.cs](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.12-13/Tests/Task4)
 	
