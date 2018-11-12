@@ -6,5 +6,6 @@ namespace Tasks.Task3
 {
     class BinarySearch
     {
+
     }
 }
