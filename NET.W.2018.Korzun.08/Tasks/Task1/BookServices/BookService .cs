@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,6 +48,7 @@ namespace Tasks.Task1
         /// </exception>
         public void AddBook(Book book)
         {
+            
             if (book is null)
             {
                 throw new ArgumentNullException($"{nameof(book)} is null.");
