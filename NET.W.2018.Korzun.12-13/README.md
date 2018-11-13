@@ -14,8 +14,8 @@
 
 ### Задание 3
 Реализовать обобщенный алгоритм бинарного поиска (ограничения на параметр типа не использовать!). Разработать unit-тесты.
-- Решение
-- Тесты
+- Решение [BinarySearch.cs](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.12-13/ClassLibrary1/Task3)
+- Тесты [BinarySearchTests.cs](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.12-13/Tests/Task3)
 
 ### Задание 4
 Реализовать метод для генерации  последовательности чисел Фибоначчи. 
