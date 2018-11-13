@@ -12,6 +12,7 @@ namespace Tests.Task4
         [TestCase(0, new int[] { })]
         public void CalculationFibonacci_InputCorrectValues(int count, int[] expected)
         {
+            // Assert
             Assert.IsTrue(Fibonacci.CalculationFibonacci().Take(count).SequenceEqual(expected));
         }
     }
