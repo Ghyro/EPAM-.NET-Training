@@ -40,7 +40,7 @@ namespace BookConsoleTest
             }
             catch(Exception e)
             {
-                logger.Warn("Book has not been added to list.");
+                logger.Warn($"Book has not been added to list: {e.Message}");
             }
             
 
@@ -58,7 +58,7 @@ namespace BookConsoleTest
             }
             catch(IOException e)
             {
-                logger.Warn("Failed to save book list");
+                logger.Warn($"Failed to save book list: {e.Message}");
             }
             
 
