@@ -49,6 +49,7 @@ namespace Tasks.Task2
             int result = random.Next(0, 36);
 
             Console.WriteLine("Roulette rotates...");
+
             System.Threading.Thread.Sleep(1500);
 
             if (result == number)

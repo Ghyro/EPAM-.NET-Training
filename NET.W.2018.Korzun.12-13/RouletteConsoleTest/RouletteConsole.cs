@@ -47,6 +47,5 @@ namespace RouletteConsoleTest
             Console.Write(e.Message);
             Console.WriteLine($" Your number: {e.Number}");
         }
-
     }
 }
