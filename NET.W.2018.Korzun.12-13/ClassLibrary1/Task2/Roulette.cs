@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace Tasks.Task2
 {
     /// <summary>
-    /// Class <see cref="RouletteEventArgs">consist two values for storage <see cref="Message">
-    /// and <see cref="Number"/>/></see>/>
+    /// Definition of the type for storage of information,
+    /// which recipients are set notice about event
     /// </summary>
     public class RouletteEventArgs : EventArgs
-    {      
+    {
         public RouletteEventArgs(string message, int number)
         {
             this.Message = message;
@@ -22,44 +23,106 @@ namespace Tasks.Task2
     }
 
     /// <summary>
-    /// The implementation of the simulation game Roulette
+    /// This class contain implementation of method <see cref="OnGame(RouletteEventArgs)"/>,
+    /// which responsible for notice objects (about events).
     /// </summary>
-    public class Roulette
-    {   
-        Random random = new Random();
+    public class RouletteGame
+    {
+        Random randon = new Random();
 
-        public delegate void RouletteStateHandler(object sender, RouletteEventArgs e);
+        public event EventHandler<RouletteEventArgs> ResultOfGame;
 
-        public event RouletteStateHandler Win;
-
-        public event RouletteStateHandler Lose;
-
-        public void Game(int number)
+        public void SimulateGame()
         {
-            if (number > 36 || number < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(number));
-            }
-
-            if (ReferenceEquals(number, null))
-            {
-                throw new ArgumentNullException(nameof(number));
-            }
-
-            int result = random.Next(0, 36);
+            int number = randon.Next(0, 36);
 
             Console.WriteLine("Roulette rotates...");
 
-            System.Threading.Thread.Sleep(1500);
+            Thread.Sleep(1500);
 
-            if (result == number)
+            RouletteEventArgs e = new RouletteEventArgs($"Dropped number: {number}", number);
+
+            OnGame(e);
+        }       
+
+        protected virtual void OnGame(RouletteEventArgs e)
+        {
+            ResultOfGame?.Invoke(this, e);
+        }
+    }
+
+    /// <summary>
+    /// The abstaract class, which describe all players
+    /// </summary>
+    public abstract class Player
+    {
+        public Player(string name, string surname, int bet)
+        {
+            this.Name = name;
+            this.Surname = surname;
+            this.Bet = bet;
+        }
+
+        public string Name { get; set; }
+
+        public string Surname { get; set; }
+
+        public int Bet { get; set; }
+
+        public abstract void Result(object sender, RouletteEventArgs e);
+    }
+
+    /// <summary>
+    /// The first player
+    /// </summary>
+    public class Player1 : Player
+    {
+        public Player1(RouletteGame roulette, string name, string surname, int bet) : base(name, surname, bet)
+        {
+            roulette.ResultOfGame += Result;
+        }
+
+        public override void Result(object sender, RouletteEventArgs e)
+        {
+            Console.WriteLine($"Dropped number: {e.Number}");
+
+            Console.WriteLine($"{Name} has dropped: {Bet}");
+
+            if (this.Bet == e.Number)
             {
-                Win?.Invoke(this, new RouletteEventArgs($"You are winner!!! Dropped number: {result}", number));
+                Console.WriteLine($"Player {Name} has won!");
             }
-            else
+        }
+
+        public void Unregister(RouletteGame roulette)
+        {
+            roulette.ResultOfGame -= Result;
+        }
+    }
+
+    /// <summary>
+    /// The second player
+    /// </summary>
+    public class Player2 : Player
+    {
+        public Player2(RouletteGame roulette, string name, string surname, int bet) : base(name, surname, bet)
+        {
+            roulette.ResultOfGame += Result;
+        }
+
+        public override void Result(object sender, RouletteEventArgs e)
+        {
+            Console.WriteLine($"{Name} has dropped: {Bet}");
+
+            if (this.Bet == e.Number)
             {
-                Lose?.Invoke(this, new RouletteEventArgs($"You are loser!!! Dropped number: {result}", number));
+                Console.WriteLine($"Player {Name} has won!");
             }
-        }        
+        }
+
+        public void Unregister(RouletteGame roulette)
+        {
+            roulette.ResultOfGame -= Result;
+        }
     }
 }
