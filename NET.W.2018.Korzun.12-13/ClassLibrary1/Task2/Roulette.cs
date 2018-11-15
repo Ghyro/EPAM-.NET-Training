@@ -56,8 +56,9 @@ namespace Tasks.Task2
     /// </summary>
     public abstract class Player
     {
-        public Player(string name, string surname, int bet)
+        public Player(RouletteGame roulette, string name, string surname, int bet)
         {
+            roulette.ResultOfGame += Result;
             this.Name = name;
             this.Surname = surname;
             this.Bet = bet;
@@ -77,9 +78,8 @@ namespace Tasks.Task2
     /// </summary>
     public class Player1 : Player
     {
-        public Player1(RouletteGame roulette, string name, string surname, int bet) : base(name, surname, bet)
-        {
-            roulette.ResultOfGame += Result;
+        public Player1(RouletteGame roulette, string name, string surname, int bet) : base(roulette, name, surname, bet)
+        {           
         }
 
         public override void Result(object sender, RouletteEventArgs e)
@@ -105,9 +105,8 @@ namespace Tasks.Task2
     /// </summary>
     public class Player2 : Player
     {
-        public Player2(RouletteGame roulette, string name, string surname, int bet) : base(name, surname, bet)
-        {
-            roulette.ResultOfGame += Result;
+        public Player2(RouletteGame roulette, string name, string surname, int bet) : base(roulette, name, surname, bet)
+        {            
         }
 
         public override void Result(object sender, RouletteEventArgs e)
