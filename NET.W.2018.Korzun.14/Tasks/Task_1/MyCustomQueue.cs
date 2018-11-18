@@ -20,6 +20,7 @@ namespace Tasks.Task_1
         private int front; // Head
         private int rear; // Tail
         private int capacity = 10;
+        private int _count { get; }
         #endregion
 
         #region constructor
