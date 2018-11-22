@@ -9,9 +9,9 @@ namespace BLL.BusinessModels
 {
     public class GeneratorId : IGetID
     {        
-        public int GetId(int Id)
+        public int GetId(int? Id)
         {
-            return Id++;
+            return (int)Id++;
         }
     }
 }

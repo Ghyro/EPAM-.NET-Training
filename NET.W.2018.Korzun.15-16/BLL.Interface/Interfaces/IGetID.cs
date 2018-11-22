@@ -8,6 +8,6 @@ namespace BLL.Interface.Interfaces
 {
     public interface IGetID
     {
-        int GetId(int id);
+        int GetId(int? id);
     }
 }
