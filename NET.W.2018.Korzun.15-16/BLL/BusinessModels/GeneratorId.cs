@@ -1,17 +1,17 @@
-﻿using BLL.Interface.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BLL.Interface.Interfaces;
 
 namespace BLL.BusinessModels
 {
     public class GeneratorId : IGetID
     {        
-        public int GetId(int? Id)
+        public int GetId(int? id)
         {
-            return (int)Id++;
+            return (int)id++;
         }
     }
 }

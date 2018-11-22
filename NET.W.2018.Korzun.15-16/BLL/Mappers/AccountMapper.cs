@@ -1,18 +1,16 @@
-﻿using BLL.Interface.DTO;
-using BLL.Interface.Interfaces;
-using DAL.Interface.Intities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BLL.Interface.DTO;
+using BLL.Interface.Interfaces;
+using DAL.Interface.Intities;
 
 namespace BLL.Mappers
 {
     public class AccountMapper
-    {
-        private IBankAccountFactory bankFactory { get; set; }
-
+    {     
         public AccountMapper(IBankAccountFactory bankAccount)
         {
             if (bankAccount is null)
@@ -20,8 +18,10 @@ namespace BLL.Mappers
                 throw new ArgumentNullException(nameof(bankAccount));
             }
 
-            this.bankFactory = bankFactory;
+            this.BankFactory = bankAccount;
         }
+
+        private IBankAccountFactory BankFactory { get; set; }
 
         public Account DoAccount(AccountDTO accountDTO)
         {
@@ -38,7 +38,7 @@ namespace BLL.Mappers
 
         public AccountDTO DoAccountDTO(Account account)
         {
-            return this.bankFactory.GetAccount(account.Id, account.Name, account.Surname, account.Amount, account.Bonus, (AccountType)account.AccountType);
+            return this.BankFactory.GetAccount(account.Id, account.Name, account.Surname, account.Amount, account.Bonus, (AccountType)account.AccountType);
         }
     }
 }

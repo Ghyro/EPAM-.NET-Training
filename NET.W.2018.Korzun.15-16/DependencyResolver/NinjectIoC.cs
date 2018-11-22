@@ -11,17 +11,16 @@ namespace DependencyResolver
 {
     public class NinjectIoC
     {
-        public readonly IKernel kernel;
+        public readonly IKernel Kernel;
 
         public NinjectIoC()
         {
-            kernel = new StandardKernel();
-            kernel.Bind<IRepository>().To<BankAccountRepositories>();
-            kernel.Bind<IBankAccountFactory>().To<BankAccountFactory>().WithPropertyValue("Withdraw", new BonusWithdraw()).WithPropertyValue("Replenishment", new BonusReplenishment());
-            kernel.Bind<IBankService>().To<AccountService>();
-            kernel.Bind<IGetID>().To<GeneratorId>();
-            kernel.Bind<IBonus>().To<BonusWithdraw>();
-
+            Kernel = new StandardKernel();
+            Kernel.Bind<IRepository>().To<BankAccountRepositories>();
+            Kernel.Bind<IBankAccountFactory>().To<BankAccountFactory>().WithPropertyValue("Withdraw", new BonusWithdraw()).WithPropertyValue("Replenishment", new BonusReplenishment());
+            Kernel.Bind<IBankService>().To<AccountService>();
+            Kernel.Bind<IGetID>().To<GeneratorId>();
+            Kernel.Bind<IBonus>().To<BonusWithdraw>();
         }
     }
 }

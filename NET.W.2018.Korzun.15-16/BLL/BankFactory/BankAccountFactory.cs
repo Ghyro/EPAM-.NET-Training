@@ -1,16 +1,26 @@
-﻿using BLL.BusinessModels;
-using BLL.Interface.DTO;
-using BLL.Interface.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BLL.BusinessModels;
+using BLL.Interface.DTO;
+using BLL.Interface.Interfaces;
 
 namespace BLL.BankFactory
 {
     public class BankAccountFactory : IBankAccountFactory
     {
+        /// <summary>
+        /// Create new object <see cref="IBonus"/> type of <see cref="BonusWithdraw"/>
+        /// </summary>
+        public IBonus Withdraw { get; set; } = new BonusWithdraw();
+
+        /// <summary>
+        /// Create new object <see cref="IBonus"/> type of <see cref="BonusReplenishment"/>
+        /// </summary>
+        public IBonus Replenishment { get; set; } = new BonusReplenishment();
+
         /// <summary>
         /// Determine the initial type of account
         /// </summary>
@@ -46,16 +56,6 @@ namespace BLL.BankFactory
             {
                 return new BaseAccount(id, name, surname, amount, bonus, this.Withdraw, this.Replenishment);
             }
-        }
-
-        /// <summary>
-        /// Create new object <see cref="IBonus"/> type of <see cref="BonusWithdraw"/>
-        /// </summary>
-        public IBonus Withdraw { get; set; } = new BonusWithdraw();
-
-        /// <summary>
-        /// Create new object <see cref="IBonus"/> type of <see cref="BonusReplenishment"/>
-        /// </summary>
-        public IBonus Replenishment { get; set; } = new BonusReplenishment();
+        }        
     }
 }

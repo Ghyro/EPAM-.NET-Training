@@ -25,7 +25,7 @@ namespace DAL.Interface.Intities
         /// <summary>
         /// The account holder surname
         /// </summary>
-        public string Surname { get;set; }
+        public string Surname { get; set; }
 
         /// <summary>
         /// The account current amount

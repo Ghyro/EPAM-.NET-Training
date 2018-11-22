@@ -9,13 +9,13 @@ using Ninject;
 
 namespace ConsolePL
 {
-    class Program
+    public class Program
     {
-        private IKernel kernel = new NinjectIoC().kernel;
+        private IKernel kernel = new NinjectIoC().Kernel;
         private IBankAccountFactory factory;
         private IBankService service;
 
-        static void Main()
+        private static void Main()
         {
             new Program().TestMethod();
 
@@ -27,15 +27,12 @@ namespace ConsolePL
             this.factory = kernel.Get<IBankAccountFactory>();
             this.service = kernel.Get<IBankService>();            
 
-            this.service.Add(this.CreateAccount());
-
-            
+            this.service.Add(this.CreateAccount());            
         }
 
         private AccountDTO CreateAccount()
         {
-            var getId = this.kernel.Get<IGetID>();
-            
+            var getId = this.kernel.Get<IGetID>();            
 
             Console.WriteLine("Enter your name...");
             string name = Convert.ToString(Console.ReadLine());
@@ -54,4 +51,3 @@ namespace ConsolePL
         }
     }
 }
-

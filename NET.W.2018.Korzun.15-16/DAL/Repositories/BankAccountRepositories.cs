@@ -1,12 +1,12 @@
-﻿using DAL.Context;
-using DAL.Interface.Interfaces;
-using DAL.Interface.Intities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL.Context;
+using DAL.Interface.Interfaces;
+using DAL.Interface.Intities;
 
 namespace DAL.Repositories
 {
@@ -17,9 +17,9 @@ namespace DAL.Repositories
     {
         private BankContext bankContext;
 
-        public BankAccountRepositories(BankContext dbContext)
+        public BankAccountRepositories(BankContext context)
         {
-            this.bankContext = dbContext;
+            this.bankContext = context;
         }
 
         /// <summary>

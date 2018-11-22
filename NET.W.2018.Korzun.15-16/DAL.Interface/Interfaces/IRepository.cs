@@ -1,9 +1,9 @@
-﻿using DAL.Interface.Intities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL.Interface.Intities;
 
 namespace DAL.Interface.Interfaces
 {

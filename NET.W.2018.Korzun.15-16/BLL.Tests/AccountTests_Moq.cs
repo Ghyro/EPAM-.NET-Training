@@ -1,13 +1,14 @@
-﻿using NUnit.Framework;
-using Moq;
+﻿using System;
+using BLL.BankFactory;
 using BLL.Interface.DTO;
 using BLL.Interface.Interfaces;
-using BLL.BankFactory;
+using Moq;
+using NUnit.Framework;
 
 namespace BLL.Tests
 {
     [TestFixture]
-    class AccountTests_Moq
+    public class AccountTests_Moq
     {
         [Test]
         [TestCase(1, "Frank ", "Gallagher", 0, 0, AccountType.Base)]
@@ -22,7 +23,6 @@ namespace BLL.Tests
             // Act
             mockWithraw.Setup(m => m.GetBonusPoints(It.IsAny<AccountDTO>(), It.IsAny<decimal>()))
                 .Returns<AccountDTO, decimal>((account, balance) => account.BonusPointToWithdraw);
-
             
             mockReplenishment.Setup(m => m.GetBonusPoints(It.IsAny<AccountDTO>(), It.IsAny<decimal>()))
                 .Returns<AccountDTO, decimal>((account, balance) => account.BonusPointToReplenishment);
