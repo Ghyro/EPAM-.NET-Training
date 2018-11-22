@@ -3,6 +3,7 @@ using BLL.Interface.Interfaces;
 using BLL.Mappers;
 using DAL.Interface.Interfaces;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +31,7 @@ namespace BLL.ServiceImplementation
 
             this.repository = repository;
             this.accountMapper = accountMapper;
-            this.listAccount = this.repository.GetAllList().Select(list => this.accountMapper.DoAccountDTO(list));
+            this.listAccount = this.repository.GetAccountList().Select(list => this.accountMapper.DoAccountDTO(list));
         }
 
         public void Add(AccountDTO account)
@@ -41,7 +42,7 @@ namespace BLL.ServiceImplementation
             }
 
             this.repository.CreateAccount(this.accountMapper.DoAccount(account));
-        }
+        }       
 
         public void Remove(AccountDTO account)
         {
@@ -57,5 +58,15 @@ namespace BLL.ServiceImplementation
         {
             this.repository.SaveAccount();
         }
+
+        public IEnumerator<AccountDTO> GetEnumerator()
+        {
+            return this.listAccount.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }       
     }
 }

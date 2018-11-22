@@ -1,4 +1,4 @@
-﻿using BLL.BankAccountFactory;
+﻿using BLL.BankFactory;
 using BLL.BusinessModels;
 using BLL.Interface.DTO;
 using BLL.Interface.Interfaces;
@@ -11,10 +11,12 @@ namespace DependencyResolver
 {
     public class NinjectIoC
     {
+        public readonly IKernel kernel;
+
         public NinjectIoC()
         {
-            IKernel kernel = new StandardKernel();
-            kernel.Bind<IRepository>().To<BankAccountRepositories>().WithConstructorArgument("day15-16.txt");
+            kernel = new StandardKernel();
+            kernel.Bind<IRepository>().To<BankAccountRepositories>();
             kernel.Bind<IBankAccountFactory>().To<BankAccountFactory>().WithPropertyValue("Withdraw", new BonusWithdraw()).WithPropertyValue("Replenishment", new BonusReplenishment());
             kernel.Bind<IBankService>().To<AccountService>();
             kernel.Bind<IGetID>().To<GeneratorId>();

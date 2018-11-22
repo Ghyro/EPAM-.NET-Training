@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.BankAccountFactory
+namespace BLL.BankFactory
 {
     public class BankAccountFactory : IBankAccountFactory
     {
@@ -48,8 +48,14 @@ namespace BLL.BankAccountFactory
             }
         }
 
+        /// <summary>
+        /// Create new object <see cref="IBonus"/> type of <see cref="BonusWithdraw"/>
+        /// </summary>
         public IBonus Withdraw { get; set; } = new BonusWithdraw();
 
+        /// <summary>
+        /// Create new object <see cref="IBonus"/> type of <see cref="BonusReplenishment"/>
+        /// </summary>
         public IBonus Replenishment { get; set; } = new BonusReplenishment();
     }
 }

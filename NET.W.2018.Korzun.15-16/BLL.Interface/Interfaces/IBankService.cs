@@ -10,7 +10,7 @@ namespace BLL.Interface.Interfaces
     /// <summary>
     /// Bank services
     /// </summary>
-    public interface IBankService
+    public interface IBankService : IEnumerable<AccountDTO>
     {
         /// <summary>
         /// Add new account

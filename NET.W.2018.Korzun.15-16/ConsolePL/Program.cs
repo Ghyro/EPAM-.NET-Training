@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using BLL.Interface.Entities;
+using BLL.Interface.DTO;
 using BLL.Interface.Interfaces;
 using DependencyResolver;
 using Ninject;
@@ -9,45 +9,44 @@ namespace ConsolePL
 {
     class Program
     {
-        private static readonly IKernel resolver;
+        private IKernel kernel = new NinjectIoC().kernel;
+        private IBankAccountFactory factory;
+        private IBankService service;
 
-        static Program()
+        static void Main()
         {
-            resolver = new StandardKernel();
-            resolver.ConfigurateResolver();
+            new Program().TestMethod();
+
+            Console.ReadLine();
         }
 
-        static void Main(string[] args)
+        private void TestMethod()
         {
-            IAccountService service = resolver.Get<IAccountService>();
-            IAccountNumberCreateService creator = resolver.Get<IAccountNumberCreateService>();
+            this.factory = kernel.Get<IBankAccountFactory>();
+            this.service = kernel.Get<IBankService>();            
 
-            service.OpenAccount("Account owner 1", AccountType.Base, creator);
-            service.OpenAccount("Account owner 2", AccountType.Base, creator);
-            service.OpenAccount("Account owner 3", AccountType.Silver, creator);
-            service.OpenAccount("Account owner 4", AccountType.Base, creator);
-
-            var creditNumbers = service.GetAllAccounts().Select(acc => acc.AccountNumber).ToArray();
-
-            foreach (var t in creditNumbers)
+            while (true)
             {
-                service.DepositAccount(t, 100);
+                this.service.Add(this.CreateAccount());
             }
+        }
 
-            foreach (var item in service.GetAllAccounts())
-            {
-                Console.WriteLine(item);
-            }
+        private AccountDTO CreateAccount()
+        {
+            var getId = this.kernel.Get<IGetID>();
+            int id = getId.GetId(1);
 
-            foreach (var t in creditNumbers)
-            {
-                service.WithdrawAccount(t, 10);
-            }
+            Console.WriteLine("Enter your name...");
+            string name = Convert.ToString(Console.ReadLine());
 
-            foreach (var item in service.GetAllAccounts())
-            {
-                Console.WriteLine(item);
-            }
+            Console.WriteLine("Enter your surname...");
+            string surname = Convert.ToString(Console.ReadLine());
+
+            string typeAccount = Console.ReadLine();
+            Enum.TryParse(typeAccount, true, out AccountType accountType);
+
+            return factory.GetAccount(id, name, surname, 0, 0, accountType);
         }
     }
 }
+
