@@ -9,7 +9,7 @@ namespace Tasks.Task3_Tests
     /// the node data and the <see cref="IComparable.CompareTo(object)"/> method for comparing nodes.
     /// </summary>
     /// <typeparam name="T">Input type</typeparam>
-    public class BinaryTreeNode<T> : IComparable<T> where T : IComparable
+    public class BinaryTreeNode<T>
     {
         public BinaryTreeNode(T value)
         {
@@ -21,10 +21,5 @@ namespace Tasks.Task3_Tests
         public BinaryTreeNode<T> Right { get; set; }
 
         public T Value { get; set; }
-
-        public int CompareTo(T other)
-        {
-            return Value.CompareTo(other);
-        }
     }   
 }

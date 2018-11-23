@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using Tasks.Task3_Tests;
 
 namespace Tasks_Tests.Task3_Tests
@@ -86,6 +87,40 @@ namespace Tasks_Tests.Task3_Tests
         }
 
         [Test]
+        public void Add_InOrderSortPoint_NUnit()
+        {
+            // Arrange
+            Point point1 = new Point() { X = 9, Y = 3 };
+
+            Point point2 = new Point() { X = 910, Y = 3 };
+
+            Point point3 = new Point() { X = 91, Y = 2 };
+
+            var comparer = new CustomPoint();
+
+            var result = new Point[3];
+
+            Point[] expected = { point1, point3, point2 };
+
+            var binaryTree = new BinarySearchTree<Point>(comparer.Compare);
+
+            // Act
+            binaryTree.Add(point1);
+            binaryTree.Add(point2);
+            binaryTree.Add(point3);
+
+            int i = 0;
+
+            foreach (var item in binaryTree)
+            {
+                result[i++] = item;
+            }
+
+            // Assert
+            Assert.AreEqual(expected, result);
+        }
+
+        [Test]
         public void Add_ArgumentNullException_NUnit()
         {
             // Arrange
@@ -95,6 +130,6 @@ namespace Tasks_Tests.Task3_Tests
 
             // Assert
             Assert.Throws<ArgumentNullException>(() => binaryTree.Add(array));
-        }
+        }        
     }
 }

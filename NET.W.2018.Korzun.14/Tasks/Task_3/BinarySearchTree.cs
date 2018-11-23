@@ -12,7 +12,7 @@ namespace Tasks.Task3_Tests
     /// direct (preorder), transverse (inorder), and reverse (posterorder).
     /// </summary>
     /// <typeparam name="T">Input type</typeparam>
-    public class BinarySearchTree<T> : IEnumerable<T> where T : IComparable
+    public sealed class BinarySearchTree<T> : IEnumerable<T>, IEnumerable
     {
         #region private fields
         private readonly Comparison<T> _compare;
@@ -25,14 +25,22 @@ namespace Tasks.Task3_Tests
         /// <summary>
         /// Create new object of <see cref="BinarySearchTree{T}"/>/>
         /// </summary>
-        public BinarySearchTree() : this(null)
+        public BinarySearchTree() : this((Comparison<T>)null)
+        {
+        }
+
+        /// <summary>
+        /// Create new object of <see cref="BinarySearchTree{T}"/>
+        /// </summary>
+        /// <param name="comparer">Compare two instances (struct <see cref="Point>"/>)</param>
+        public BinarySearchTree(IComparer<T> comparer) : this(comparer.Compare)
         {
         }
 
         /// <summary>
         /// Create new object of <see cref="Comparison{T}"/>/>
         /// </summary>
-        /// <param name="comparison">Compare two instances</param>
+        /// <param name="comparison">Compare two instances (class <see cref="Book"/>)</param>
         public BinarySearchTree(Comparison<T> comparison)
         {
             _compare = comparison ?? Comparer<T>.Default.Compare;

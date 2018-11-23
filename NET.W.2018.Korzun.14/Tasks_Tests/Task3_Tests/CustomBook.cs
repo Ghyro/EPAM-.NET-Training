@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tasks_Tests.Task3_Tests
 {
-    public class CustomBook : IComparable<CustomBook>, IComparable
+    public sealed class CustomBook : IComparable<CustomBook>, IComparable
     {
         public int ISBN { get; set; }
 
