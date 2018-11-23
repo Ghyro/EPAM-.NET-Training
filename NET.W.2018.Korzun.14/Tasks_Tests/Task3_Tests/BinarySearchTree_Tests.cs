@@ -90,19 +90,17 @@ namespace Tasks_Tests.Task3_Tests
         public void Add_InOrderSortPoint_NUnit()
         {
             // Arrange
-            Point point1 = new Point() { X = 9, Y = 3 };
-
-            Point point2 = new Point() { X = 910, Y = 3 };
-
-            Point point3 = new Point() { X = 91, Y = 2 };
+            Point point1 = new Point() { X = 3, Y = 2 };
+            Point point2 = new Point() { X = 510, Y = 3 };
+            Point point3 = new Point() { X = 21, Y = 4 };
 
             var comparer = new CustomPoint();
 
+            var binaryTree = new BinarySearchTree<Point>(comparer.Compare);           
+
             var result = new Point[3];
 
-            Point[] expected = { point1, point3, point2 };
-
-            var binaryTree = new BinarySearchTree<Point>(comparer.Compare);
+            Point[] expected = { point1, point3, point2 };            
 
             // Act
             binaryTree.Add(point1);
