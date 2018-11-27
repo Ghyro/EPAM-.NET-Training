@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace No1.Solution.Checkers
 {
+    /// <summary>
+    /// Checking password length
+    /// </summary>
     public class CheckerLength : IPassword
     {
         public Tuple<bool, string> VerifyPassword(string password)

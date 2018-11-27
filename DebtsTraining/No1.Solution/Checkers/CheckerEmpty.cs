@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace No1.Solution.Checkers
 {
+    /// <summary>
+    /// Checking password for emptiness
+    /// </summary>
     public class CheckerEmpty : IPassword
     {
         public Tuple<bool, string> VerifyPassword(string password)

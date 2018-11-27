@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace No1.Solution.Service
 {
+    /// <summary>
+    /// Contains <see cref="Create(string)"/> for create password
+    /// </summary>
     public class SQLRepository : IRepository
     {
         private List<string> passwordList;
@@ -15,6 +18,11 @@ namespace No1.Solution.Service
 
         public SQLRepository(IEnumerable<IPassword> passwordsChecker)
         {
+            if (passwordsChecker is null)
+            {
+                throw new ArgumentNullException(nameof(passwordsChecker));
+            }
+
             this.passwordList = new List<string>();
             this.passwordsChecker = passwordsChecker;
         }
