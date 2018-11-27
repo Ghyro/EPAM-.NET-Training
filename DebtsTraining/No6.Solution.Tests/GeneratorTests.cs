@@ -11,7 +11,7 @@ namespace No6.Solution.Tests
         [Test]
         public void Generate_InputCorrectValues_TheFirstIntValues()
         {
-            var input = new Generator().Generate(1, 2, 3, (a, b) => a + b);
+            var input = new Generator().Generate(1, 1, 3, (a, b) => a + b);
         }
 
         [Test]
