@@ -11,7 +11,7 @@ namespace No3.Solution.Calculate
     /// The first way which use <see cref="List{T}"> and interface <see cref="IAveragingMethod"/>/>
     /// This interface implements two class: <see cref="Mean"/> and <see cref="Median"/>
     /// </summary>
-    public class Calculator
+    public sealed class Calculator
     {
         public double CalculateAverage(List<double> values, IAveragingMethod averaging)
         {
