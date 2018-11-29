@@ -4,6 +4,11 @@
     <host name="github.com" />
     <uri>
       <segment>AnzhelikaKravchuk</segment>
+    </uri>[tab, repositories ]</urlAddress>
+  <urlAddress>
+    <host name="github.com" />
+    <uri>
+      <segment>AnzhelikaKravchuk</segment>
     </uri>
   </urlAddress>
   <urlAddress>

@@ -59,19 +59,24 @@ namespace Task.BLL.BussinessModel
         public Dictionary<string, string> GetParam(string url)
         {
             Dictionary<string, string> result = new Dictionary<string, string>();
-            int index = url.LastIndexOf('?');
+
+            int indexQuestion = url.LastIndexOf('?');
 
             int indexCompare = -1;
 
-            while (index < url.Length && index != -1)
+            while (indexQuestion < url.Length && indexQuestion != -1)
             {
-                int secondIndex = url.IndexOf("&", index);
+                int secondIndex = url.IndexOf("&", indexQuestion);
+
                 secondIndex = secondIndex == -1 ? url.Length : secondIndex - 1;
-                indexCompare = url.IndexOf('=', index);
-                string key = url.Substring(index + 1, indexCompare - index - 1);
+                indexCompare = url.IndexOf('=', indexQuestion);
+
+                string key = url.Substring(indexQuestion + 1, indexCompare - indexQuestion - 1);
                 string value = url.Substring(indexCompare + 1, secondIndex - indexCompare - 1);
+
                 result.Add(key, value);
-                index = secondIndex;
+
+                indexQuestion = secondIndex;
             }
 
             return result;
@@ -84,7 +89,7 @@ namespace Task.BLL.BussinessModel
         /// <returns>True if URL is valid</returns>
         public bool ValidDocument(string url)
         {
-            const string HTTPS_PATTERN = @"^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$";
+            const string HTTPS_PATTERN = @"^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+";
 
             return Regex.IsMatch(url, HTTPS_PATTERN);
         }

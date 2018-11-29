@@ -43,14 +43,15 @@ namespace Task.BLL.BussinessModel
                 throw new ArgumentNullException(nameof(sourceFile));
             }
 
-            var document = new XDocument(new XDeclaration("1.0", "utf-8", null));
-            var rootElement = new XElement("urlAddresses");
+            XDocument xDocument = new XDocument(new XDeclaration("1.0", "utf-8", null));
+
+            XElement xRoot = new XElement("urlAddresses");
 
             foreach (var item in sourceFile)
             {
                 if (service.ValidDocument(item))
                 {
-                    var urlAddressNode = new XElement("urlAddress");
+                    XElement urlAddressNode = new XElement("urlAddress");
 
                     GetHost(item, urlAddressNode);
 
@@ -58,7 +59,7 @@ namespace Task.BLL.BussinessModel
 
                     GetParam(item, urlAddressNode);
 
-                    rootElement.Add(urlAddressNode);
+                    xRoot.Add(urlAddressNode);
                 }
                 else
                 {
@@ -66,8 +67,8 @@ namespace Task.BLL.BussinessModel
                 }
             }
 
-            document.Add(rootElement);
-            return document;
+            xDocument.Add(xRoot);
+            return xDocument;
         }
 
         /// <summary>
@@ -77,11 +78,11 @@ namespace Task.BLL.BussinessModel
         /// <param name="parent">Parent node</param>
         private void GetHost(string url, XElement parent)
         {
-            var host = service.GetHost(url);
+            var xHost = service.GetHost(url);
 
-            XElement xHost = new XElement("host", new XAttribute("name", host));
+            XElement host = new XElement("host", new XAttribute("name", xHost));
 
-            parent.Add(xHost);
+            parent.Add(host);
         }
 
         /// <summary>
@@ -112,7 +113,7 @@ namespace Task.BLL.BussinessModel
         {
             Dictionary<string, string> parameters = this.service.GetParam(url);
 
-            if (parameters.Count > 0)
+            if (parameters.Count >= 0)
             {
                 XElement parametersNode = new XElement("parameters");
 
