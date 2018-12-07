@@ -1,4 +1,4 @@
-# Задания Day 22 (classwork)
+# Tasks Day 22 (classwork)
 
 ## deadline -
 
