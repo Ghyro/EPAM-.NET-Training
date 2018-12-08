@@ -2,7 +2,7 @@
 
 ## deadline -
 
-### Task 1
+### Task 1 (finished in class) !!!
 
 IIS architecture and principles:
 
@@ -14,7 +14,7 @@ CSS reading: http://htmlbook.ru/samcss
 
 -------------------------------------
 
-### Task 2
+### Task 2 (homework)
 
 Responsive design :
 
