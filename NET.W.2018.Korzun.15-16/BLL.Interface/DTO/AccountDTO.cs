@@ -13,7 +13,7 @@ namespace BLL.Interface.DTO
         private int _id;
         private string _name;
         private string _surname;
-        private decimal _amount; // balance
+        private decimal _balance; // balance
         private int _bonus;
         private IBonus _bonusToWithdraw;
         private IBonus _bonusToReplenishment;
@@ -28,12 +28,12 @@ namespace BLL.Interface.DTO
         /// <param name="surname">The surname of holder account</param>
         /// <param name="amount">The balance of account</param>
         /// <param name="bonus">Bonus points</param>
-        public AccountDTO(int id, string name, string surname, decimal amount, int bonus)
+        public AccountDTO(int id, string name, string surname, decimal balance, int bonus)
         {
             this.Id = id;
             this.Name = name;
             this.Surname = surname;
-            this.Amount = amount;
+            this.Balance = balance;
             this.Bonus = bonus;
         }
 
@@ -47,8 +47,8 @@ namespace BLL.Interface.DTO
         /// <param name="bonus">Bonus points</param>
         /// <param name="bonusToWithdraw">Bonus by withdraw</param>
         /// <param name="bonusToReplenishment">Bonus by replenishment</param>
-        public AccountDTO(int id, string name, string surname, decimal amount, int bonus, IBonus bonusToWithdraw, IBonus bonusToReplenishment)
-            : this(id, name, surname, amount, bonus)
+        public AccountDTO(int id, string name, string surname, decimal balance, int bonus, IBonus bonusToWithdraw, IBonus bonusToReplenishment)
+            : this(id, name, surname, balance, bonus)
 
         {
             this.BonusToWithdraw = bonusToWithdraw;
@@ -123,11 +123,11 @@ namespace BLL.Interface.DTO
         /// <summary>
         /// The balance of account
         /// </summary>
-        public decimal Amount
+        public decimal Balance
         {
             get
             {
-                return _amount;
+                return _balance;
             }
 
             set
@@ -137,7 +137,7 @@ namespace BLL.Interface.DTO
                     throw new ArgumentException($"{nameof(value)} must not be less than 0.");
                 }
 
-                _amount = value;
+                _balance = value;
             }
         }
 
@@ -229,12 +229,12 @@ namespace BLL.Interface.DTO
                 throw new ArgumentException(nameof(money));
             }
 
-            if (money > this.Amount)
+            if (money > this.Balance)
             {
                 throw new ArgumentException(nameof(money));
             }
 
-            this.Amount -= money;
+            this.Balance -= money;
 
             int bonusBalance = Bonus - BonusToReplenishment.GetBonusPoints(this, money);
 
@@ -255,7 +255,7 @@ namespace BLL.Interface.DTO
                 throw new ArgumentException(nameof(money));
             }
 
-            this.Amount += money;
+            this.Balance += money;
 
             Bonus = Bonus + BonusToReplenishment.GetBonusPoints(this, money);
         }
@@ -266,7 +266,7 @@ namespace BLL.Interface.DTO
         /// <returns></returns>
         public override string ToString()
         {
-            return $"Id: {this.Id}, name: {this.Name}, surname: {this.Surname}, amount: {this.Amount}, bonus points: {this.Bonus}, account type: {this.AccountType}";
+            return $"Id: {this.Id}, name: {this.Name}, surname: {this.Surname}, amount: {this.Balance}, bonus points: {this.Bonus}, account type: {this.AccountType}";
         }
 
         /// <summary>

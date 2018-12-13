@@ -16,13 +16,19 @@ namespace DAL.Interface.Interfaces
         /// Create new account
         /// </summary>
         /// <param name="account">Object of<see cref="Account"/></param>
-        void CreateAccount(Account account);
+        void CreateAccount(Account item);
 
         /// <summary>
         /// Update account
         /// </summary>
         /// <param name="account">Object of<see cref="Account"/></param>
-        void UpdateAccount(Account account);
+        void UpdateAccount(Account item);
+
+        /// <summary>
+        /// Delete account
+        /// </summary>
+        /// <param name="id">Current account id</param>
+        void DeleteAccount(int id);
 
         /// <summary>
         /// Remove account
@@ -31,21 +37,28 @@ namespace DAL.Interface.Interfaces
         void RemoveAccount(int id);
 
         /// <summary>
-        /// Save account
-        /// </summary>
-        void SaveAccount();
-
-        /// <summary>
         /// Get account by id
         /// </summary>
         /// <param name="id">Id of <see cref="Account"/></param>
-        /// <returns>found account</returns>
+        /// <returns>Found account</returns>
         Account GetAccount(int id);
 
         /// <summary>
         /// Get accounts list
         /// </summary>
         /// <returns>The list of <see cref="Account"/></returns>
-        IEnumerable<Account> GetAccountList();
+        IEnumerable<Account> GetAllAccounts();
+
+        /// <summary>
+        /// Search concrete account
+        /// </summary>
+        /// <param name="predicate">Parameteres for seach</param>
+        /// <returns>Bool</returns>
+        IEnumerable<Account> FindConcrete(Func<Account, bool> predicate);
+
+        /// <summary>
+        /// Save accounts
+        /// </summary>
+        void SaveAccount();
     }
 }

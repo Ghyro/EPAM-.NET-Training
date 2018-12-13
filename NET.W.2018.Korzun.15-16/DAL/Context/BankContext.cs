@@ -16,7 +16,7 @@ namespace DAL.Context
         /// <summary>
         /// Connection string
         /// </summary>
-        public BankContext() : base("DbConnection")
+        public BankContext() : base("DefaultConnection")
         {
         }
 

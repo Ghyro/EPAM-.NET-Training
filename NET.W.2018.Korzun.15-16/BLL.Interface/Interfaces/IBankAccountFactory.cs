@@ -18,10 +18,10 @@ namespace BLL.Interface.Interfaces
         /// <param name="id">The account id</param>
         /// <param name="name">Holder name</param>
         /// <param name="surname">Holder surname</param>
-        /// <param name="amount">Current amount</param>
+        /// <param name="balance">Current amount</param>
         /// <param name="bonus">The account bonus</param>
         /// <param name="type">Type of account</param>
         /// <returns>New account <see cref="AccountDTO"/></returns>
-        AccountDTO GetAccount(int id, string name, string surname, decimal amount, int bonus, AccountType type);
+        AccountDTO GetAccount(int id, string name, string surname, decimal balance, int bonus, AccountType type);
     }
 }

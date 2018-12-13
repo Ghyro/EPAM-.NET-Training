@@ -30,7 +30,7 @@ namespace DAL.Interface.Intities
         /// <summary>
         /// The account current amount
         /// </summary>
-        public decimal Amount { get; set; }
+        public decimal Balance { get; set; }
 
         /// <summary>
         /// The account bonus points 

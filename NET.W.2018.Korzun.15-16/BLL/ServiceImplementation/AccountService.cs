@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +32,7 @@ namespace BLL.ServiceImplementation
 
             this.repository = repository;
             this.accountMapper = accountMapper;
-            this.listAccount = this.repository.GetAccountList().Select(list => this.accountMapper.DoAccountDTO(list));
+            this.listAccount = this.repository.GetAllAccounts().Select(s => this.accountMapper.ToAccountDTO(s));
         }
 
         public void Add(AccountDTO account)
@@ -41,8 +42,13 @@ namespace BLL.ServiceImplementation
                 throw new ArgumentNullException(nameof(account));
             }
 
-            this.repository.CreateAccount(this.accountMapper.DoAccount(account));
-        }       
+            this.repository.CreateAccount(this.accountMapper.ToAccount(account));
+        }
+
+        public IEnumerable<AccountDTO> GetAccounts()
+        {
+            return listAccount.ToList();
+        }
 
         public void Remove(AccountDTO account)
         {
@@ -58,15 +64,5 @@ namespace BLL.ServiceImplementation
         {
             this.repository.SaveAccount();
         }
-
-        public IEnumerator<AccountDTO> GetEnumerator()
-        {
-            return this.listAccount.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }       
     }
 }

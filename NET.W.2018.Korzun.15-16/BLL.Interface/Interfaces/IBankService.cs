@@ -10,7 +10,7 @@ namespace BLL.Interface.Interfaces
     /// <summary>
     /// Bank services
     /// </summary>
-    public interface IBankService : IEnumerable<AccountDTO>
+    public interface IBankService
     {
         /// <summary>
         /// Add new account
@@ -22,11 +22,12 @@ namespace BLL.Interface.Interfaces
         /// Remove account
         /// </summary>
         /// <param name="account">object of <see cref="Account"/></param>
-        void Remove(AccountDTO account);
+        void Remove(AccountDTO account);       
 
         /// <summary>
-        /// Save list to the file
+        /// Get all accounts
         /// </summary>
-        void Save();
+        /// <returns>List</returns>
+        IEnumerable<AccountDTO> GetAccounts();
     }
 }
