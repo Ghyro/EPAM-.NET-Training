@@ -1,13 +1,17 @@
-﻿using System;
+﻿using BLL.Interface.DTO;
+using BLL.Interface.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BLL.Interface.DTO;
 
-namespace BLL.Interface.Interfaces
+namespace BLL.BusinessModels
 {
-    public interface IBonus
+    /// <summary>
+    /// Calculation of bonus points
+    /// </summary>
+    public class Bonus : IBonus
     {
         /// <summary>
         /// Сalculation of bonus points for deposit
@@ -15,7 +19,10 @@ namespace BLL.Interface.Interfaces
         /// <param name="account">Current account</param>
         /// <param name="amount">Current amount of money</param>
         /// <returns>Bonus amount</returns>
-        decimal DepositBonus(BankAccountDTO account, decimal amount);
+        public decimal DepositBonus(BankAccountDTO account, decimal amount)
+        {
+            return amount + account.AccountType.CoefDeposit;
+        }
 
         /// <summary>
         /// Сalculation of bonus points for withdraw
@@ -23,6 +30,9 @@ namespace BLL.Interface.Interfaces
         /// <param name="account">Current account</param>
         /// <param name="amount">Current amount of money</param>
         /// <returns>Bonus amount</returns>
-        decimal WithdrawBonus(BankAccountDTO account, decimal amount);
+        public decimal WithdrawBonus(BankAccountDTO account, decimal amount)
+        {
+            return amount - account.AccountType.CoefWithdraw;
+        }
     }
 }

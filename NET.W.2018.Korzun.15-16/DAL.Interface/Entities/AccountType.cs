@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.Interface.DTO
+namespace DAL.Interface.Entities
 {
     /// <summary>
     /// Three type of account - Base, Gold, Platinum

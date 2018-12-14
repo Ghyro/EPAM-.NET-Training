@@ -47,7 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\AccountStatus.cs" />
     <Compile Include="Entities\Account.cs" />
+    <Compile Include="Entities\AccountType.cs" />
+    <Compile Include="Entities\AccountOwner.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

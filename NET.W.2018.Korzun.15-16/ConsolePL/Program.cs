@@ -30,7 +30,7 @@ namespace ConsolePL
             this.service.Add(this.CreateAccount());            
         }
 
-        private AccountDTO CreateAccount()
+        private BankAccountDTO CreateAccount()
         {
             var getId = this.kernel.Get<IGetID>();            
 
@@ -45,7 +45,7 @@ namespace ConsolePL
 
             int id = getId.GetId(1);
 
-            Enum.TryParse(typeAccount, true, out AccountType accountType);
+            Enum.TryParse(typeAccount, true, out AccountTypeDTO accountType);
 
             return factory.GetAccount(id, name, surname, 0, 0, accountType);
         }

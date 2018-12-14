@@ -11,21 +11,21 @@ namespace BLL.Tests
     public class AccountTests_Moq
     {
         [Test]
-        [TestCase(1, "Frank ", "Gallagher", 0, 0, AccountType.Base)]
-        [TestCase(2, "Jesse", "Pinkman", 0, 0, AccountType.Gold)]
-        [TestCase(3, "Walter", "White", 0, 0, AccountType.Platinum)]
-        public void AccountTest_ThreeAccounts_ToReplenishmentMoneyFromAccount_Moq(int id, string name, string surname, decimal amount, int bonus, AccountType accountType)
+        [TestCase(1, "Frank ", "Gallagher", 0, 0, AccountTypeDTO.Base)]
+        [TestCase(2, "Jesse", "Pinkman", 0, 0, AccountTypeDTO.Gold)]
+        [TestCase(3, "Walter", "White", 0, 0, AccountTypeDTO.Platinum)]
+        public void AccountTest_ThreeAccounts_ToReplenishmentMoneyFromAccount_Moq(int id, string name, string surname, decimal amount, int bonus, AccountTypeDTO accountType)
         {
             // Arrange
             Mock<IBonus> mockWithraw = new Mock<IBonus>();
             Mock<IBonus> mockReplenishment = new Mock<IBonus>();
 
             // Act
-            mockWithraw.Setup(m => m.GetBonusPoints(It.IsAny<AccountDTO>(), It.IsAny<decimal>()))
-                .Returns<AccountDTO, decimal>((account, balance) => account.BonusPointToWithdraw);
+            mockWithraw.Setup(m => m.GetBonusPoints(It.IsAny<BankAccountDTO>(), It.IsAny<decimal>()))
+                .Returns<BankAccountDTO, decimal>((account, balance) => account.BonusPointToWithdraw);
             
-            mockReplenishment.Setup(m => m.GetBonusPoints(It.IsAny<AccountDTO>(), It.IsAny<decimal>()))
-                .Returns<AccountDTO, decimal>((account, balance) => account.BonusPointToReplenishment);
+            mockReplenishment.Setup(m => m.GetBonusPoints(It.IsAny<BankAccountDTO>(), It.IsAny<decimal>()))
+                .Returns<BankAccountDTO, decimal>((account, balance) => account.BonusPointToReplenishment);
 
             IBankAccountFactory bankAccount = new BankAccountFactory()
             {
@@ -33,7 +33,7 @@ namespace BLL.Tests
                 Replenishment = mockReplenishment.Object
             };
 
-            AccountDTO accountDTO = bankAccount.GetAccount(id, name, surname, amount, bonus, accountType);
+            BankAccountDTO accountDTO = bankAccount.GetAccount(id, name, surname, amount, bonus, accountType);
             accountDTO.ReplenishmentMoney(100500);
 
             // Assert
@@ -41,21 +41,21 @@ namespace BLL.Tests
         }
 
         [Test]
-        [TestCase(1, "Frank", "Gallagher", 0, 0, AccountType.Base)]
-        [TestCase(2, "Jesse", "Pinkman", 0, 0, AccountType.Gold)]
-        [TestCase(3, "Walter", "White", 0, 0, AccountType.Platinum)]
-        public void AccountTest_ThreeAccounts_ToWithdrayMoneyFromAccount_Moq(int id, string name, string surname, decimal amount, int bonus, AccountType accountType)
+        [TestCase(1, "Frank", "Gallagher", 0, 0, AccountTypeDTO.Base)]
+        [TestCase(2, "Jesse", "Pinkman", 0, 0, AccountTypeDTO.Gold)]
+        [TestCase(3, "Walter", "White", 0, 0, AccountTypeDTO.Platinum)]
+        public void AccountTest_ThreeAccounts_ToWithdrayMoneyFromAccount_Moq(int id, string name, string surname, decimal amount, int bonus, AccountTypeDTO accountType)
         {
             // Arrange
             Mock<IBonus> mockWithraw = new Mock<IBonus>();
             Mock<IBonus> mockReplenishment = new Mock<IBonus>();
 
             // Act
-            mockWithraw.Setup(m => m.GetBonusPoints(It.IsAny<AccountDTO>(), It.IsAny<decimal>()))
-                .Returns<AccountDTO, decimal>((account, balance) => account.BonusPointToWithdraw);
+            mockWithraw.Setup(m => m.GetBonusPoints(It.IsAny<BankAccountDTO>(), It.IsAny<decimal>()))
+                .Returns<BankAccountDTO, decimal>((account, balance) => account.BonusPointToWithdraw);
             
-            mockReplenishment.Setup(m => m.GetBonusPoints(It.IsAny<AccountDTO>(), It.IsAny<decimal>()))
-                .Returns<AccountDTO, decimal>((account, balance) => account.BonusPointToReplenishment);
+            mockReplenishment.Setup(m => m.GetBonusPoints(It.IsAny<BankAccountDTO>(), It.IsAny<decimal>()))
+                .Returns<BankAccountDTO, decimal>((account, balance) => account.BonusPointToReplenishment);
 
             IBankAccountFactory bankAccount = new BankAccountFactory()
             {
@@ -63,7 +63,7 @@ namespace BLL.Tests
                 Replenishment = mockReplenishment.Object
             };
 
-            AccountDTO accountDTO = bankAccount.GetAccount(id, name, surname, amount, bonus, accountType);
+            BankAccountDTO accountDTO = bankAccount.GetAccount(id, name, surname, amount, bonus, accountType);
             accountDTO.ReplenishmentMoney(100500);
             accountDTO.WithdrawMoney(100500);
 

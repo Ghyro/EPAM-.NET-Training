@@ -16,38 +16,32 @@ namespace DAL.Interface.Interfaces
         /// Create new account
         /// </summary>
         /// <param name="account">Object of<see cref="Account"/></param>
-        void CreateAccount(Account item);
+        void Create(Account account);
 
         /// <summary>
         /// Update account
         /// </summary>
         /// <param name="account">Object of<see cref="Account"/></param>
-        void UpdateAccount(Account item);
-
-        /// <summary>
-        /// Delete account
-        /// </summary>
-        /// <param name="id">Current account id</param>
-        void DeleteAccount(int id);
+        void Update(Account account);
 
         /// <summary>
         /// Remove account
         /// </summary>
         /// <param name="id">Id of <see cref="Account"/></param>
-        void RemoveAccount(int id);
+        void Remove(int id);
 
         /// <summary>
         /// Get account by id
         /// </summary>
         /// <param name="id">Id of <see cref="Account"/></param>
         /// <returns>Found account</returns>
-        Account GetAccount(int id);
+        Account Get(int id);
 
         /// <summary>
         /// Get accounts list
         /// </summary>
         /// <returns>The list of <see cref="Account"/></returns>
-        IEnumerable<Account> GetAllAccounts();
+        IEnumerable<Account> GetAll();
 
         /// <summary>
         /// Search concrete account
@@ -59,6 +53,6 @@ namespace DAL.Interface.Interfaces
         /// <summary>
         /// Save accounts
         /// </summary>
-        void SaveAccount();
+        void Save();
     }
 }

@@ -26,7 +26,7 @@ namespace DAL.Repositories
         /// Adds new <see cref="Account"/>
         /// </summary>
         /// <param name="account">The <see cref="Account"/> to add</param>
-        public void CreateAccount(Account account)
+        public void Create(Account account)
         {
             db.Accounts.Add(account);
         }
@@ -35,7 +35,7 @@ namespace DAL.Repositories
         /// Removes <see cref="Account"/>
         /// </summary>
         /// <param name="id">The id of <see cref="Account"/> which need to remove</param>
-        public void RemoveAccount(int id)
+        public void Remove(int id)
         {
             var account = this.db.Accounts.FirstOrDefault(b => b.Id == id);
             db.Accounts.Remove(account);
@@ -44,7 +44,7 @@ namespace DAL.Repositories
         /// <summary>
         /// Save <see cref="Account"/> to list
         /// </summary>
-        public void SaveAccount()
+        public void Save()
         {
             this.db.SaveChanges();
         }
@@ -53,7 +53,7 @@ namespace DAL.Repositories
         /// Update account
         /// </summary>
         /// <param name="account">The object of <see cref="Account"/></param>
-        public void UpdateAccount(Account account)
+        public void Update(Account account)
         {
             db.Entry(account).State = EntityState.Modified;
         }
@@ -63,31 +63,17 @@ namespace DAL.Repositories
         /// </summary>
         /// <param name="id">Input id</param>
         /// <returns>Account</returns>
-        public Account GetAccount(int id)
+        public Account Get(int id)
         {
             var account = this.db.Accounts.FirstOrDefault(b => b.Id == id);
             return account;
         }
 
         /// <summary>
-        /// Delete account
-        /// </summary>
-        /// <param name="id">Account id</param>
-        public void DeleteAccount(int id)
-        {
-            var account = db.Accounts.Find(id);
-
-            if (account != null)
-            {
-                db.Accounts.Remove(account);
-            }
-        }
-
-        /// <summary>
         /// Get list of accounts
         /// </summary>
         /// <returns>List</returns>
-        public IEnumerable<Account> GetAllAccounts()
+        public IEnumerable<Account> GetAll()
         {
             return db.Accounts;
         }
