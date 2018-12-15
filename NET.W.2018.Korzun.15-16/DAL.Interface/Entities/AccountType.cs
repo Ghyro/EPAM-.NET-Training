@@ -9,10 +9,12 @@ namespace DAL.Interface.Entities
     /// <summary>
     /// Three type of account - Base, Gold, Platinum
     /// </summary>
-    public enum AccountType
+    public class AccountType
     {
-        Base,
-        Gold,
-        Platinum
+        public string Type { get; set; }
+
+        public int CoefDeposit { get; set; }
+
+        public int CoefWithdraw { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BLL.Interface.DTO;
+using DAL.Interface.Entities;
 using DAL.Interface.Intities;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,26 @@ namespace BLL.BusinessModels
                 .ForMember(x => x.AccountStatus, s => s.MapFrom(t => t.AccountStatus))).CreateMapper();
 
             return mapper.Map<IEnumerable<Account>, IEnumerable<BankAccountDTO>>(accountDtos);
+        }
+
+        public IEnumerable<AccountTypeDTO> MapTypes(IEnumerable<AccountType> typeDtos)
+        {
+            var mapper = new MapperConfiguration(c => c.CreateMap<AccountType, AccountTypeDTO>()).CreateMapper();
+
+            return mapper.Map<IEnumerable<AccountType>, IEnumerable<AccountTypeDTO>>(typeDtos);
+        }
+
+        public BankAccountDTO MapAccount(Account accountDto)
+        {
+            var mapper = new MapperConfiguration(c => c.CreateMap<Account, BankAccountDTO>()
+
+                .ForMember(x => x.AccountType, s => s.MapFrom(t => t.AccountType))
+
+                .ForMember(x => x.Owner, s => s.MapFrom(t => t.Owner))
+
+                .ForMember(x => x.AccountStatus, s => s.MapFrom(t => t.AccountStatus))).CreateMapper();
+
+            return mapper.Map<Account, BankAccountDTO>(accountDto);
         }
     }
 }

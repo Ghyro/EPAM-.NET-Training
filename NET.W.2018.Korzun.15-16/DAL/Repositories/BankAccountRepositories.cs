@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Context;
+using DAL.Interface.Entities;
 using DAL.Interface.Interfaces;
 using DAL.Interface.Intities;
 
@@ -86,6 +87,15 @@ namespace DAL.Repositories
         public IEnumerable<Account> FindConcrete(Func<Account, bool> predicate)
         {
             return db.Accounts.Where(predicate).ToList();
+        }
+
+        /// <summary>
+        /// Get all types of account
+        /// </summary>
+        /// <returns>List of types</returns>
+        public IEnumerable<AccountType> GetTypesAccount()
+        {
+            return db.AccountTypes;
         }
     }
 }

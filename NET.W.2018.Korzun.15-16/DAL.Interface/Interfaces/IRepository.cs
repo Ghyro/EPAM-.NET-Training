@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL.Interface.Entities;
 using DAL.Interface.Intities;
 
 namespace DAL.Interface.Interfaces
@@ -49,6 +50,12 @@ namespace DAL.Interface.Interfaces
         /// <param name="predicate">Parameteres for seach</param>
         /// <returns>Bool</returns>
         IEnumerable<Account> FindConcrete(Func<Account, bool> predicate);
+
+        /// <summary>
+        /// Get all types of account
+        /// </summary>
+        /// <returns>List of types</returns>
+        IEnumerable<AccountType> GetTypesAccount();
 
         /// <summary>
         /// Save accounts

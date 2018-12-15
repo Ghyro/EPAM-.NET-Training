@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Interface.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -45,9 +46,15 @@ namespace PLL.WEB.Models
         public int Bonus { get; set; }
 
         /// <summary>
+        /// The account status
+        /// </summary>
+        [Required]
+        public AccountStatus Status { get; set; }
+
+        /// <summary>
         /// The account type (base, gold, platinum)
         /// </summary>
         [Required]
-        public int AccountType { get; set; }
+        public string AccountType { get; set; }
     }
 }

@@ -59,6 +59,13 @@ namespace BLL.Interface.Interfaces
         IEnumerable<BankAccountDTO> GetAccounts();
 
         /// <summary>
+        /// Get account
+        /// </summary>
+        /// <param name="id">The ID of account</param>
+        /// <returns>Account</returns>
+        BankAccountDTO GetAccountDTO(int id);
+
+        /// <summary>
         /// Save account
         /// </summary>
         void SaveAccount();

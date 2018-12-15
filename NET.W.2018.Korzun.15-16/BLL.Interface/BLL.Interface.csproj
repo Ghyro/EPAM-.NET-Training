@@ -52,12 +52,19 @@
     <Compile Include="DTO\AccountStatusDTO.cs" />
     <Compile Include="DTO\AccountTypeDTO.cs" />
     <Compile Include="Interfaces\IBankService.cs" />
+    <Compile Include="Interfaces\IBankTypeAccount.cs" />
     <Compile Include="Interfaces\IBonus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL.Interface\DAL.Interface.csproj">
+      <Project>{9501E6EA-AA42-46B3-B9AA-EE8AEC8697C9}</Project>
+      <Name>DAL.Interface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
