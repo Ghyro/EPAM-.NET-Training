@@ -6,14 +6,14 @@
 
 Разработать обобщенный класс-коллекцию Queue, реализующий основные операции для работы с очередью, и предоставляющий возможность итерирования, реализовав итератор «вручную» (без использования блок-итератора yield). Протестировать методы разработанного класса.
 
-   1) Решение [MyCustomQueue.cs](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.14/Tasks/Task_1)
-   2) Тесты [MyCustomQueue_Tests.cs](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.14/Tasks_Tests/Task1_Tests)
+   #### Решение [MyCustomQueue.cs](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.14/Tasks/Task_1)
+   #### Тесты [MyCustomQueue_Tests.cs](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.14/Tasks_Tests/Task1_Tests)
 ### Задание 2
 
 Создать обобщенные классы для представления квадратной, симметрической и диагональной матриц (симметрическая матрица – это квадратная матрица, которая совпадает с транспонированной к ней; диагональная матрица – это квадратная матрица, у которой элементы вне главной диагонали заведомо имеют значения по умолчанию типа элемента). Описать в созданных классах событие, которое происходит при изменении элемента матрицы с индексами (i, j).  Расширить функциональность существующей иерархии классов, добавив возможность операции сложения двух матриц любого типа. Разработать unit-тесты.
    
-   1) Решение [Matrix, Event, Operations](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.14/Tasks/Task_2)
-   2) Тесты [Square, Diagonal, Symmetric](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.14/Tasks_Tests/Task2_Tests)
+   #### Решение [Matrix, Event, Operations](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.14/Tasks/Task_2)
+   #### Тесты [Square, Diagonal, Symmetric](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.14/Tasks_Tests/Task2_Tests)
 
 ### Задание 3
 
@@ -27,6 +27,6 @@
     
    - пользовательскую структуру Point, для объектов которого не реализовано отношения порядка (использовать подключаемый компаратор).
  
-   1) Решение [BinarySearchTree.cs](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.14/Tasks/Task_3)
-   2) Тесты [BinarySearchTree_Tests.cs](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.14/Tasks_Tests/Task3_Tests)
+   #### Решение [BinarySearchTree.cs](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.14/Tasks/Task_3)
+   #### Тесты [BinarySearchTree_Tests.cs](https://github.com/Ghyro/EPAM-.NET-Training/tree/master/NET.W.2018.Korzun.14/Tasks_Tests/Task3_Tests)
  
